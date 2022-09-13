@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Button, Row, Modal, Form, Col, Table } from "react-bootstrap";
@@ -10,8 +10,6 @@ function Add() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -21,13 +19,15 @@ function Add() {
   const [country, setCountry] = useState("");
   const [getData, setData] = useState([]);
 
+  const { id } = useParams();
+
   const addData = (e) => {
     e.preventDefault();
 
     const val = { name, email, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch("http://localhost:1234/addServiceProviderByAdminId?id=11", {
+    fetch(`http://localhost:1234/addServiceProviderByAdminId?${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),
