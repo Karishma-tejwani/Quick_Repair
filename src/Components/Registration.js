@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import Login from "./Login";
-import apiCall from "../Components/apiCall";
 import "../Style/Style.css";
-import { Container, Alert } from "react-bootstrap";
 import Background from "./Background";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -17,18 +13,6 @@ const initialValues = {
   address: "",
   city: "",
 };
-
-// const schema = Yup.object({
-//   name: Yup.string().required("Please enter name"),
-//   email: Yup.string().required("Please enter Email"),
-//   password: Yup.string()
-//     .min(3)
-//     .required("Password should be atleast 3 characters"),
-//   phone: Yup.string().required("Please enter phone number"),
-//   address: Yup.string().required("Please enter address"),
-//   city: Yup.string().required("Please enter City"),
-//   country: Yup.string().required("Please enter country"),
-// });
 
 const schema = Yup.object().shape({
   name: Yup.string().required().label("name"),
@@ -52,18 +36,7 @@ function Registration() {
       },
     });
 
-  // const signUp = (val) => {
-  //   apiCall("registerCustomer", JSON.stringify(val), "POST", JSON).then(
-  //     (res) => {
-  //       console.log("name", res);
-  //       // alert("Customer Registration Successfully!");
-  //       navigate("/login");
-  //     }
-  //   );
-  // };
-
   async function signUp(val) {
-    console.log(val);
     try {
       let result = await fetch("http://localhost:1234/registerCustomer", {
         method: "POST",
@@ -75,12 +48,15 @@ function Registration() {
       });
 
       result = await result.json();
-      console.log(result);
       alert("Registration sucessfully!");
       navigate("/login");
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function handleClick() {
+    navigate("/login");
   }
 
   return (
@@ -211,7 +187,7 @@ function Registration() {
           </button>
 
           <p
-            // onClick={handleClick}
+            onClick={handleClick}
             className="registered text-right fs-5"
             style={{ color: "black" }}
           >
