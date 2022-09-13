@@ -14,6 +14,12 @@ import ElectricalAppliance from "./Services/ElectricalAppliance";
 import HomePainting from "./Services/HomePainting";
 import Laundry from "./Services/Laundry";
 import Plumbing from "./Services/Plumbing";
+import Dashboard from "./Dashboard/Dashboard";
+import Services from "./Dashboard/Services";
+import Customers from "./Dashboard/Customers";
+import Orders from "./Dashboard/Orders";
+import Edit from "./Dashboard/Edit";
+import Add from "./Dashboard/Add";
 // import AnimatedRoutes from "./Components/AnimatedRoutes";
 // import Footer from './Footer/Footer';
 
@@ -36,6 +42,14 @@ function App() {
         <Route path="/company" element={<Company />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Notfound />} />
+
+        {/* -------------Admin Dashboard---------- */}
+        <Route path="Dashboard" element={<Dashboard />} />
+        <Route path="Services" element={<Services />} />
+        <Route path="Customers" element={<Customers />} />
+        <Route path="Orders" element={<Orders />} />
+        <Route path="Add" element={<Add />} />
+        <Route path="Edit" element={<Edit />} />
       </Routes>
       {/* <Footer /> */}
     </>
