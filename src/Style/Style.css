@@ -1,0 +1,747 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Redressed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Indie Flower", cursive;
+}
+
+/* --------------------Background--------------- */
+#videoBg {
+  position: fixed;
+  z-index: -1;
+  margin-top: -5%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #videoBg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #videoBg {
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  #videoBg {
+    display: none;
+  }
+}
+
+/* ---------------------------------- Navbar --------------------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+}
+
+.logo {
+  margin-top: -8%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  width: 75%;
+  /* margin-top: -9%; */
+}
+
+.home,
+.about,
+.service,
+.company,
+.contact {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  /* font-size: 25px; */
+}
+
+#navbarScrollingDropdown {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.dropdown {
+  text-decoration: none;
+  color: white;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.user {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.mobile-menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 780px) {
+  .logo {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    left: 35px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    position: absolute;
+    display: block;
+    list-style: none;
+    background-color: black;
+    left: 0;
+    top: 75px;
+    transition: all 0.5s ease-out;
+    width: 100%;
+  }
+
+  .home,
+  .about,
+  .service,
+  .company,
+  .contact {
+    color: white;
+    text-align: center;
+    padding: 32px;
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+
+  #navbarScrollingDropdown {
+    color: white;
+    text-align: center;
+    padding: 32px;
+    width: 100%;
+    transition: all 0.5s ease;
+    margin-top: -10px;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    border: none;
+    outline: none;
+    top: 30px;
+    right: 25px;
+  }
+}
+
+/* -------------Homepage--------------------- */
+
+/* -------------Carousel-------------- */
+
+.heading {
+  color: black;
+  font-weight: bolder;
+}
+
+/* -------------slider Container------------- */
+
+#body {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+#main-slider-container {
+  position: relative;
+  display: flex;
+  width: 90%;
+  height: 400px;
+  margin-top: 13%;
+  align-items: center;
+  padding: 0 32px;
+}
+
+#slider {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+#slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-icon.left,
+.slider-icon.right {
+  position: absolute;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.slider-icon.left {
+  left: 0;
+}
+
+.slider-icon.right {
+  right: 0;
+}
+
+.slider-icon.left:hover,
+.slider-icon.right:hover {
+  opacity: 1;
+}
+
+/* -------------Slider card--------------- */
+
+.slider-card {
+  width: 400px;
+  height: 360px;
+  margin-top: 10px;
+  background: rgb(237 227 227 / 63%);
+  border-radius: 10px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+/* -------------------Card Image------------- */
+
+.slider-card-img {
+  width: 100%;
+  height: 260px;
+  background: #80808021;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.slider-card-title,
+.slider-card-desc {
+  margin: 5px 0px 5px 10px;
+}
+
+.slider-card-title {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.slider-card-desc {
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* -------------------About the system------------------ */
+
+.para {
+  font-size: 18px;
+}
+
+.head3 {
+  margin-top: 20%;
+}
+
+/* ---------------------Page Not found----------------- */
+
+#notfound {
+  position: relative;
+  height: 100vh;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 920px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.notfound .notfound-404 {
+  position: absolute;
+  height: 100px;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+  color: #ececec;
+  font-weight: 900px;
+  font-size: 276px;
+  margin: 0px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound h2 {
+  font-size: 46px;
+  color: black;
+  font-weight: 900;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.notfound p {
+  font-size: 24px;
+  color: black;
+  font-weight: 400px;
+  margin-top: 15px;
+}
+
+.notfound a {
+  font-size: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #189cf0;
+  display: inline-block;
+  padding: 16px 38px;
+  border: 2px solid transparent;
+  color: white;
+  font-weight: 400;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  background-color: white;
+  border-color: #189cf0;
+  color: #189cf0;
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 h1 {
+    font-size: 162px;
+  }
+  .notfound h2 {
+    font-size: 26px;
+  }
+}
+
+/* ---------------------Registration-------------------- */
+
+.register {
+  margin-top: 15%;
+  margin-left: -55%;
+  font-size: 40px;
+}
+
+.container-reg {
+  margin-left: 38%;
+  font-size: 25px;
+}
+
+span {
+  padding: 10px 10px;
+}
+
+.mybtn {
+  width: 200px;
+  font-size: 25px;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-left: 13%;
+  /* margin-left: 25%; */
+}
+
+.registered {
+  margin-left: 10%;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ------------------Login---------------- */
+
+.container {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 20%;
+  font-size: 25px;
+}
+
+input {
+  color: white;
+  background-color: rgba(119, 127, 141, 0.2);
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+/* -----------------Contact-------------------- */
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #2b3238;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #bdc3c5;
+}
+
+.Container {
+  position: relative;
+  min-width: 1100px;
+  min-height: 600px;
+  display: flex;
+  z-index: 1000;
+}
+
+.contactInfo {
+  position: absolute;
+  top: 40px;
+  width: 350px;
+  height: calc(100% -8px);
+  background: #0f3959;
+  z-index: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contactInfo h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.info {
+  position: relative;
+  margin: 20px 0;
+}
+
+.info li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  margin: 20px 0;
+  cursor: pointer;
+  align-items: flex-start;
+  color: rgb(220, 211, 211);
+}
+
+.info li span:nth-child(1) {
+  width: 30px;
+  min-width: 30px;
+}
+
+.info li span:nth-child(2) {
+  color: white;
+  margin-left: 10px;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+.info li:hover span:nth-child(2) {
+  opacity: 1;
+}
+
+.social {
+  position: relative;
+  display: flex;
+}
+
+.social li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+.social li a {
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.social li a:hover {
+  color: rgb(236, 228, 228);
+}
+
+.contactForm {
+  position: absolute;
+  padding: 70px 50px;
+  background: white;
+  margin-left: 150px;
+  padding-left: 250px;
+  width: calc(100% -150px);
+  height: 100%;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.contactForm h1 {
+  color: #134165;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.sendBtn {
+  margin-left: 68%;
+}
+
+/* ---------------Responsive Contact Page----------------- */
+
+@media (max-width: 1200px) {
+  .Container {
+    width: 90%;
+    min-width: auto;
+    margin: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2s);
+    margin-top: 10%;
+  }
+  .contactInfo {
+    top: 0;
+    height: 565px;
+    position: relative;
+    box-shadow: none;
+  }
+  .contactForm {
+    position: relative;
+    width: calc(100% - 350px);
+    padding-left: 0;
+    margin-left: 0;
+    padding: 40px;
+    height: 565px;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 991px) {
+  section {
+    background: #bdc3c5;
+  }
+  section::before {
+    display: none;
+  }
+  .Container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .contactForm {
+    width: 100%;
+    height: auto;
+  }
+  .contactForm h2 {
+    margin-top: 15%;
+  }
+  .contactInfo {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+  }
+  .contactInfo ul.sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 450px) {
+  .Container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 15%;
+  }
+  .contactForm {
+    width: 100%;
+    height: auto;
+  }
+  .contactForm h2 {
+    margin-top: 15%;
+  }
+  .contactInfo ul.sci {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* -----------------About------------------- */
+@media (max-width: 550px) {
+  .col-5 {
+    width: fit-content;
+    height: auto;
+  }
+}
+
+/* -------------------- AddServices----------------------- */
+/* .slider {
+  width: 100%;
+  height: 400px;
+}
+
+.slideshow,
+.slideshow img {
+  width: 100%;
+  height: 350px;
+}
+
+.slideshow {
+  transform: scale(0.7);
+  transition: 0.5s;
+}
+
+.slideshow-active {
+  width: 100%;
+  height: 350px;
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.header {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 60px;
+}
+
+.arrow {
+  font-size: 30px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 3px #ccc;
+  display: flex;
+  width: 50px;
+  position: absolute;
+  top: 200px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.dot {
+  margin-top: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 3px #ccc;
+}
+
+.dot-active {
+  background: #121227;
+  box-shadow: 0 0 15px 10px #ccc;
+} */
+
+/* ------------Responsive service Screen-------------------- */
+/* @media screen and (max-width: 1145px) {
+  .header {
+    margin-top: 120px;
+    margin-left: 5px;
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin-top: 120px;
+    margin-left: 5px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .header {
+    margin-top: 120px;
+    margin-left: 5px;
+    font-size: 30px;
+  }
+}*/
+
+/* -------------Home Cleaning Service----------- */
+
+.bgService{
+  background-image: url(https://i.pinimg.com/736x/39/38/72/3938724643d6ee55a4d87c2cd80f81f6.jpg);
+  height:'100vh';
+  margin-top:'-70px';
+  font-size:'50px';
+  background-size: 'cover';
+  background-repeat: 'no-repeat';
+}
+
+.btn{
+  margin-top: -50px;
+  border-radius: 60px;
+  background-color: #0f3959;
+}
+
+.cleaningImg{
+  width: 100%;
+  height: 50vh;
+}
+
+/*----------------Rating--------------------- */
+input[type="radio"]{
+  display: none;
+}
+
+.star{
+  cursor: pointer;
+  transition: color 200ms;
+}

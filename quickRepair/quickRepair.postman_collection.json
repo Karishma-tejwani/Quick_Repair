@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "478ba168-167e-4590-a8f8-126ecf97ff57",
+		"name": "quickRepair",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:1234/getServiceTypeByName?name=Laundry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/getServiceTypeByName?name=Laundry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"getServiceTypeByName"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Laundry"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:1234/getAllServices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:1234/getAllServices"
+			},
+			"response": []
+		}
+	]
+}

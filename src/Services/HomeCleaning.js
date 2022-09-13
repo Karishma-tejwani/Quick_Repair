@@ -1,0 +1,100 @@
+import { useState, useEffect } from "react";
+import apiCall from "../Components/apiCall";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import "../Style/Style.css";
+import Background from "../Components/Background";
+
+function HomeCleaning() {
+  const [service, setService] = useState([]);
+
+  // const fetchLink = () => {
+  //   apiCall("Home Cleaning", null, "GET", null, null)
+  //     .then((res) => {
+  //       res.json();
+
+  //       if (res) {
+  //         console.log(res);
+  //       }
+  //     })
+  //     .then((res) => setService(res))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   fetchLink();
+  // }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:1234/getServiceTypeByName?name=Home Cleaning", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => setService(res));
+  });
+
+  return (
+    <>
+      <Background />
+      <div>
+        <h1 className="text-center" style={{ marginTop: "8%" }}>
+          Home Cleaning Service
+        </h1>
+        <Container
+          className="shadow p-3 mt-5  bg-body rounded"
+          style={{ marginTop: "150px" }}
+        >
+          <Row>
+            {service.map((val, index) => {
+              return (
+                <>
+                  <Col xs={12} md={10} lg={6}>
+                    {/* <h2 className="text-center mt-5">Home Cleaning Service</h2> */}
+                    <p className="fs-5 mt-5 mx-2">{val.description}</p>
+                    <ul type="square" className="fs-5">
+                      <li>Dusting</li>
+                      <li>Sweeping</li>
+                      <li>Vacuuming</li>
+                      <li>Mopping</li>
+                      <li>Restroom Cleaning</li>
+                    </ul>
+                    <p className="fs-2 mt-5">Rs.{val.charges}</p>
+                    <Button className="fs-5 float-end btn">
+                      Book a Service
+                    </Button>
+                  </Col>
+                  <Col xs={6} md={6} lg={6}>
+                    <img
+                      src={val.image}
+                      alt="Home Cleaning"
+                      className="cleaningImg"
+                    />
+                  </Col>
+                </>
+              );
+            })}
+          </Row>
+        </Container>
+      </div>
+
+      <Container style={{ marginTop: "32%" }}>
+        <h1 className="text-center">Feedback</h1>
+        <Row>
+          <Card className="mx-3" style={{ width: "22rem" }}>
+            <Card.Body>
+              <Card.Title>Company Name</Card.Title>
+              <Card.Subtitle>Rating</Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Row>
+      </Container>
+    </>
+  );
+}
+
+export default HomeCleaning;

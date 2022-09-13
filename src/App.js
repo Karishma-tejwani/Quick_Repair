@@ -1,0 +1,45 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./Components/NavBar";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Company from "./Components/Company";
+import Contact from "./Components/Contact";
+import Login from "./Components/Login";
+import Registration from "./Components/Registration";
+import Notfound from "./Components/Notfound";
+import HomeCleaning from "./Services/HomeCleaning";
+import Carpentry from "./Services/Carpentry";
+import ElectricalAppliance from "./Services/ElectricalAppliance";
+import HomePainting from "./Services/HomePainting";
+import Laundry from "./Services/Laundry";
+import Plumbing from "./Services/Plumbing";
+// import AnimatedRoutes from "./Components/AnimatedRoutes";
+// import Footer from './Footer/Footer';
+
+function App() {
+  return (
+    <>
+      <NavBar />
+      {/* <AnimatedRoutes /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cleaning" element={<HomeCleaning />} />
+        <Route path="/carpentry" element={<Carpentry />} />
+        <Route path="/electrical" element={<ElectricalAppliance />} />
+        <Route path="/plumbing" element={<HomePainting />} />
+        <Route path="/painting" element={<Laundry />} />
+        <Route path="/laundry" element={<Plumbing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Registration />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+      {/* <Footer /> */}
+    </>
+  );
+}
+
+export default App;
