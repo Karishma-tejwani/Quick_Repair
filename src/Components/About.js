@@ -6,7 +6,7 @@ function About() {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-6" data-aos="fade-up-right">
             <h1
               className="text-center text-uppercase"
               style={{ marginTop: "25%" }}
@@ -35,7 +35,11 @@ function About() {
               </ol>
             </p>
           </div>
-          <div className="col-5" style={{ marginTop: "17%" }}>
+          <div
+            className="col-5"
+            style={{ marginTop: "17%" }}
+            data-aos="fade-down-left"
+          >
             <img src={about} alt="About image" />
           </div>
         </div>
