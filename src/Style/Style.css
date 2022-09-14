@@ -535,6 +535,7 @@ section::before {
 
 .sendBtn {
   margin-left: 68%;
+  /* width:100%; */
 }
 
 /* ---------------Responsive Contact Page----------------- */

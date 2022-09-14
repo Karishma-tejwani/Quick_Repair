@@ -19,7 +19,10 @@ function Add() {
   const [country, setCountry] = useState("");
   const [getData, setData] = useState([]);
 
+  const adminId = 11;
+
   const { id } = useParams();
+  // console.log("id is ", adminid);
 
   const addData = (e) => {
     e.preventDefault();
@@ -27,7 +30,7 @@ function Add() {
     const val = { name, email, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch(`http://localhost:1234/addServiceProviderByAdminId?${id}`, {
+    fetch(`http://localhost:1234/addServiceProviderByAdminId?id=${adminId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),
@@ -37,9 +40,12 @@ function Add() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:1234/getServiceProviderByAdminId?adminId=11`, {
-      method: "GET",
-    })
+    fetch(
+      `http://localhost:1234/getServiceProviderByAdminId?adminId=${adminId}}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         setData(result);

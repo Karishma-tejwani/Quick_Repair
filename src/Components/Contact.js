@@ -3,6 +3,10 @@ import Button from "./Button";
 import "../Style/Style.css";
 
 function Contact() {
+  function handleClick() {
+    alert("Thanks for submiting form!");
+  }
+
   return (
     <>
       <section>
@@ -92,8 +96,9 @@ function Contact() {
                 </div>
                 <div className="col-md-8 pt-5 mx-auto">
                   <input
-                    type="button"
-                    className="btn btn-primary sendBtn"
+                    type="submit"
+                    onClick={handleClick}
+                    className="btn btn-primary sendBtn w-25"
                     value="Send Message"
                   />
                   {/* <Button title="Send Message" style={{ backgroundColor: 'blue' }} cls='mybtn' />                             */}
