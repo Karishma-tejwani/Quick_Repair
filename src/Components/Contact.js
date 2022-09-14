@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "./Button";
 import "../Style/Style.css";
 
 function Contact() {
@@ -101,7 +100,6 @@ function Contact() {
                     className="btn btn-primary sendBtn w-25"
                     value="Send Message"
                   />
-                  {/* <Button title="Send Message" style={{ backgroundColor: 'blue' }} cls='mybtn' />                             */}
                 </div>
               </div>
             </form>
