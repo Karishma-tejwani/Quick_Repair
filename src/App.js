@@ -34,9 +34,9 @@ function App() {
         <Route path="/cleaning" element={<HomeCleaning />} />
         <Route path="/carpentry" element={<Carpentry />} />
         <Route path="/electrical" element={<ElectricalAppliance />} />
-        <Route path="/plumbing" element={<HomePainting />} />
-        <Route path="/painting" element={<Laundry />} />
-        <Route path="/laundry" element={<Plumbing />} />
+        <Route path="/plumbing" element={<Plumbing />} />
+        <Route path="/painting" element={<HomePainting />} />
+        <Route path="/laundry" element={<Laundry />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/company" element={<Company />} />

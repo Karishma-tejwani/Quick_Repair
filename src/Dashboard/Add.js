@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Button, Row, Modal, Form, Col, Table } from "react-bootstrap";
@@ -11,7 +11,7 @@ function Add() {
   const handleShow = () => setShow(true);
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [nic, setNic] = useState("");
   const [phone, setPhone] = useState("");
   const [serviceType, setType] = useState("");
   const [address, setAddress] = useState("");
@@ -19,18 +19,16 @@ function Add() {
   const [country, setCountry] = useState("");
   const [getData, setData] = useState([]);
 
-  const adminId = 11;
-
   const { id } = useParams();
-  // console.log("id is ", adminid);
 
+  // add data
   const addData = (e) => {
     e.preventDefault();
 
-    const val = { name, email, phone, serviceType, address, city, country };
+    const val = { name, nic, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch(`http://localhost:1234/addServiceProviderByAdminId?id=${adminId}`, {
+    fetch("http://localhost:1234/addServiceProviderByAdminId?id=11", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),
@@ -40,12 +38,9 @@ function Add() {
   };
 
   useEffect(() => {
-    fetch(
-      `http://localhost:1234/getServiceProviderByAdminId?adminId=${adminId}}`,
-      {
-        method: "GET",
-      }
-    )
+    fetch("http://localhost:1234/getServiceProviderByAdminId?adminId=11", {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((result) => {
         setData(result);
@@ -79,7 +74,7 @@ function Add() {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Email</th>
+                  <th>NIC</th>
                   <th>Phone</th>
                   <th>Address</th>
                   <th>Service Type</th>
@@ -94,7 +89,7 @@ function Add() {
                     <>
                       <tr key={i}>
                         <td>{val.name}</td>
-                        <td>{val.email}</td>
+                        <td>{val.nic}</td>
                         <td>{val.phone}</td>
                         <td>{val.address}</td>
                         <td>{val.serviceType}</td>
@@ -128,12 +123,12 @@ function Add() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form>
+              <Form.Group>
                 <Row className="mb-3">
-                  <Form.Group as={Col} controlId="formGridEmail">
+                  <Form.Group as={Col} controlId="formGridName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
-                      type="name"
+                      type="text"
                       placeholder="Enter FullName"
                       name="name"
                       value={name}
@@ -141,19 +136,19 @@ function Add() {
                     />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label>Email</Form.Label>
+                  <Form.Group as={Col} controlId="formGridNic">
+                    <Form.Label>NIC</Form.Label>
                     <Form.Control
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="text"
+                      placeholder="NIC Number"
+                      name="nic"
+                      value={nic}
+                      onChange={(e) => setNic(e.target.value)}
                     />
                   </Form.Group>
                 </Row>
 
-                <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Group className="mb-3" controlId="formGridPhone">
                   <Form.Label>Phone</Form.Label>
                   <Form.Control
                     placeholder="Enter Phone Number"
@@ -163,7 +158,7 @@ function Add() {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Group className="mb-3" controlId="formGridAddress">
                   <Form.Label>Address</Form.Label>
                   <Form.Control
                     placeholder="Apartment, studio, or floor"
@@ -173,7 +168,7 @@ function Add() {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Group className="mb-3" controlId="formGridType">
                   <Form.Label>ServiceType</Form.Label>
                   <Form.Control
                     placeholder="Enter ServiceType"
@@ -193,7 +188,7 @@ function Add() {
                     />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridState">
+                  <Form.Group as={Col} controlId="formGridCountry">
                     <Form.Label>Country</Form.Label>
                     <Form.Control
                       placeholder="Country"
@@ -203,7 +198,7 @@ function Add() {
                     />
                   </Form.Group>
                 </Row>
-              </Form>
+              </Form.Group>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={addData}>

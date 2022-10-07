@@ -18,9 +18,9 @@ function Customers() {
       Country: "Pakistan",
     },
     {
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "0303-3585181",
+      UserName: "Zoya",
+      Email: "zoya@gmail.com",
+      Phone: "0303-2568988",
       Address: "Sukkur IBA",
       City: "Sukkur",
       Country: "Pakistan",

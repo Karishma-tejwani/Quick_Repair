@@ -60,7 +60,10 @@ function HomeCleaning() {
                       <li>Restroom Cleaning</li>
                     </ul>
                     <p className="fs-2 mt-5">Rs.{val.charges}</p>
-                    <Button className="fs-5 float-end btn">
+                    <Button
+                      className="fs-5 float-end btn"
+                      style={{ width: "30%", marginTop: "-10%" }}
+                    >
                       Book a Service
                     </Button>
                   </Col>
@@ -81,10 +84,57 @@ function HomeCleaning() {
       <Container style={{ marginTop: "32%" }}>
         <h1 className="text-center">Feedback</h1>
         <Row>
-          <Card className="mx-3" style={{ width: "22rem" }}>
+          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
             <Card.Body>
-              <Card.Title>Company Name</Card.Title>
-              <Card.Subtitle>Rating</Card.Subtitle>
+              <Card.Title>Quick Repair</Card.Title>
+              <Card.Subtitle>
+                <span style={{ color: "goldenrod" }}>
+                  {" "}
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                </span>
+              </Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
+          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
+            <Card.Body>
+              <Card.Title>Justdial</Card.Title>
+              <Card.Subtitle>
+                <span style={{ color: "goldenrod" }}>
+                  {" "}
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                </span>
+              </Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
+          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
+            <Card.Body>
+              <Card.Title>Kam Kaj</Card.Title>
+              <Card.Subtitle>
+                <span style={{ color: "goldenrod" }}>
+                  {" "}
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                  <i class="zmdi zmdi-star"></i>
+                </span>
+              </Card.Subtitle>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.

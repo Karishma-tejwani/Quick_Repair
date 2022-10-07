@@ -32,7 +32,7 @@ function CardSlider() {
     },
     {
       image:
-        "https://www.totaljobs.com/advice/wp-content/uploads/electrician-job-description-1024x576.jpg",
+        "https://img.freepik.com/premium-vector/electronic-repair-service-center-illustration-cartoon-flat-family-people-pay-professional-repairing-home-electrical-appliance_169479-795.jpg?w=2000",
       title: "Electrical Appliance Repair Service",
       desc: "Maintain and repair electrical control, and lighting systems.",
     },

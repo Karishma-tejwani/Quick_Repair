@@ -535,7 +535,6 @@ section::before {
 
 .sendBtn {
   margin-left: 68%;
-  /* width:100%; */
 }
 
 /* ---------------Responsive Contact Page----------------- */
@@ -727,7 +726,7 @@ section::before {
 }
 
 .btn{
-  margin-top: -50px;
+  /* margin-top: -40px; */
   border-radius: 60px;
   background-color: #0f3959;
 }
@@ -745,4 +744,99 @@ input[type="radio"]{
 .star{
   cursor: pointer;
   transition: color 200ms;
+}
+
+/* -------------------Services--------------- */
+
+/* img{
+  width: 10%;
+  border-radius: 50%; 
+  border-color: gray;
+  border-style: dotted;
+  overflow: 'hidden';
+} 
+.image{
+  width: 30%;;
+}
+.col1{
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.col2{
+  margin-left: 25%;
+  margin-top: -16%;
+}
+.col3{
+  margin-left: 54%;
+  margin-top: -26%;
+  width: 90%;
+}
+h1{
+  margin-left: 10%;
+  color: gray;
+}
+p{
+  margin-left: 5%;
+}
+h2{
+  margin-left: 2%;
+  color: gray;
+}
+.head{
+  color: gray;
+  margin-left: 4%;
+
+} */
+
+/* -------------------------------------------------- */
+
+.register-container
+{
+   
+   display: flex;
+   height: 78vh;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.register-form
+{
+  display: flex;
+  flex-direction: column;
+  min-width: 30vw;
+
+}
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    text-align: center;
+    margin:0; 
+}
+
+input {
+
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    padding-right: 0.9rem;
+    margin: 0.5rem;
+}
+
+button
+{
+    background-color: black;
+    color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 1px solid white;
+
+}
+
+.bottom-link
+{
+    text-decoration: none;
+    color: black;
 }
