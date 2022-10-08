@@ -108,7 +108,6 @@ function HomePainting() {
                   <i class="zmdi zmdi-star"></i>
                   <i class="zmdi zmdi-star"></i>
                   <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
                 </span>
               </Card.Subtitle>
               <Card.Text>
