@@ -63,6 +63,7 @@ export const Copyright = styled.p`
   color: white;
   opacity: 0.8;
   text-align: center;
+  margin-left: -15%;
   font-size: 20px;
   padding: 40px 0;
 `;
