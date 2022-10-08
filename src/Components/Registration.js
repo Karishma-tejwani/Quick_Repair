@@ -16,15 +16,12 @@ function Registration() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:1234/registerAdmin", {
+      await axios.post("http://localhost:1234/registerCustomer", {
         name: name,
         email: email,
         password: password,
         phone: phone,
-        address: address,
         city: city,
-        country: country,
-        description: description,
       });
       alert("User Registation Successfully");
       setName("");
@@ -32,9 +29,6 @@ function Registration() {
       setPassword("");
       setCity("");
       setPhone("");
-      setAddress("");
-      setCountry("");
-      setDescription("");
     } catch (err) {
       alert("User Registation Failed");
     }
@@ -85,37 +79,10 @@ function Registration() {
 
           <input
             type="text"
-            name="address"
-            placeholder="address"
-            onChange={(event) => {
-              setAddress(event.target.value);
-            }}
-          />
-
-          <input
-            type="text"
             name="city"
             placeholder="city"
             onChange={(event) => {
               setCity(event.target.value);
-            }}
-          />
-
-          <input
-            type="text"
-            name="country"
-            placeholder="country"
-            onChange={(event) => {
-              setCountry(event.target.value);
-            }}
-          />
-
-          <input
-            type="text"
-            name="description"
-            placeholder="description"
-            onChange={(event) => {
-              setDescription(event.target.value);
             }}
           />
 

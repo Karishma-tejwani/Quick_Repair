@@ -2,24 +2,34 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import useLocalState from "./useLocalState";
 import Background from "./Background";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [jwt, setJwt] = useLocalState("", "jwt");
 
+  const navigate = useNavigate();
+
   function sendLoginRequest() {
     const reqBody = {
-      email: "karishma@gmail.com",
-      password: "123",
+      email: email,
+      password: password,
     };
     fetch("http://localhost:1234/loginCustomer", {
       headers: "POST",
       body: JSON.stringify(reqBody),
     })
-      .then((res) => Promise.all([res.json(), res.headers]))
+      .then((res) => {
+        if (res.status === 200) return Promise.all([res.json(), res.headers]);
+        else return Promise.reject("invalid login attempt");
+      })
       .then(([body, headers]) => {
         setJwt(headers.get("authorization"));
+        navigate("/home");
+      })
+      .catch((err) => {
+        alert(err);
       });
   }
 
