@@ -35,7 +35,7 @@ const Sidebar = ({ children }) => {
       icon: <FaUserCog />,
     },
     {
-      path: "/Services",
+      path: "/Service",
       name: "Services",
       icon: <FaPhoneAlt />,
     },

@@ -1,46 +1,43 @@
-import styled from 'styled-components';
-   
+import styled from "styled-components";
+
 export const Box = styled.div`
   padding: 60px 60px;
-  background: #3B3A3A;
+  background: #3b3a3a;
   position: absolute;
-  // margin-top: 40%;
   margin-bottom: 0;
   width: 100%;
   padding-bottom: 0;
-   
+
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }
 `;
-   
+
 export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 1000px;
-    margin-left: 25%;
-    margin-top: 0 auto;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: 25%;
+  margin-top: 0 auto;
+`;
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-left: 35px;
 `;
-   
+
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 
-                         minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 20px;
-   
+
   @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, 
-                           minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 `;
-   
+
 export const FooterLink = styled.a`
   color: white;
   opacity: 0.8;
@@ -48,13 +45,13 @@ export const FooterLink = styled.a`
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
-   
+
   &:hover {
-      color: green;
-      transition: 200ms ease-in;
+    color: green;
+    transition: 200ms ease-in;
   }
 `;
-   
+
 export const Heading = styled.p`
   font-size: 24px;
   color: white;
