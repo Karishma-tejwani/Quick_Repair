@@ -15,7 +15,7 @@ import HomePainting from "./Services/HomePainting";
 import Laundry from "./Services/Laundry";
 import Plumbing from "./Services/Plumbing";
 import Dashboard from "./Dashboard/Dashboard";
-import Services from "./Dashboard/Services";
+import Service from "./Dashboard/Service";
 import Customers from "./Dashboard/Customers";
 import Orders from "./Dashboard/Orders";
 import Edit from "./Dashboard/Edit";
@@ -43,7 +43,7 @@ function App() {
 
         {/* -------------Admin Dashboard---------- */}
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Services" element={<Services />} />
+        <Route path="/Service" element={<Service />} />
         <Route path="/Customers" element={<Customers />} />
         <Route path="/Orders" element={<Orders />} />
         <Route path="/Workers" element={<Workers />} />

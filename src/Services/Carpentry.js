@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import "../Style/Style.css";
 import Background from "../Components/Background";
-import Services from "../Components/Services";
+import Services from "../Components/AllServices";
 
 function Carpentry() {
   const [service, setService] = useState([]);

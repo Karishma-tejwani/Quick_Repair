@@ -1,21 +1,15 @@
 /* -----------Customer------------ */
 
 .Row{
-    justify-content: center;
-    background: linear-gradient(
-        106.37deg,
-        #ffe1bc 29.63%,
-        #ffcfd1 51.55%,
-        #f3c6f1 90.85%
-      );
-    /* margin-top:10px;  */
-     margin: 1% 3%;
-    overflow-y: scroll;
-    height: 95%;
-    width: 115%;
-    border-radius: 3rem; 
-    scroll-behavior: smooth;
-    scrollbar-width: none;  
+
+  margin-left: 190%;
+  height: 90%;
+  width: 700%;
+  background-color: rgb(213, 212, 225);
+  overflow-y: scroll;
+  border-radius: 2rem;
+  margin-top: 15px;
+  justify-content: center;
 } 
 .Row::-webkit-scrollbar {
   display: none;
@@ -23,8 +17,8 @@
 .table-css{
 margin-top : 3%;
 background-color: white;
-
 }
+
 h2{
   margin-left : 2%;
   justify-content: center;
@@ -34,8 +28,8 @@ h2{
 /* -----------------Sidebar---------------- */
 .container{
   display:flex;
-  margin-left: -2%;
-  margin-top: 2%;
+  margin-left: -0.5%;
+  margin-top: 1%;
 }
 
 main{
@@ -50,10 +44,10 @@ main{
 .sidebar{
   background: rgb(5, 5, 57);
   color: #fff;
-  height: 70vh;
+  height: 74vh;
   width: 200px;
   transition: all 0.5s;
-  border-radius: 3%;
+  border-radius: 1rem;
 }
 
 .top_section{
@@ -73,11 +67,11 @@ main{
 .link{
   display: flex;
   color: rgb(236, 230, 230);
-  padding: 10px 15px;
+  padding: 15px 15px;
   gap: 15px;
   transition: all 0.5s;
   text-decoration: none;
-  border-radius: 3%;
+  border-radius: 1rem;
 }
 .link:hover{
   background:rgb(202, 206, 209);
@@ -92,172 +86,83 @@ main{
   font-size: 20px;
 } 
 
-
-    /* -------------Dashboard------------------ */
-
-    /* :root {
-        --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
-        --orange: #fca61f;
-        --black: #242d49;
-        --gray: #788097;
-        --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
-        --pink: #FF919D;
-        --glass: rgba(255, 255, 255, 0.54);
-        --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
-        --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
-        --activeItem: #f799a354;
-      } */
-    .Dashboard{
-        background: linear-gradient(
-            106.37deg,
-            #ffe1bc 29.63%,
-            #ffcfd1 51.55%,
-            #f3c6f1 90.85%
-          );
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Inter', sans-serif;
-         overflow-y: scroll;
-        scrollbar-width: none;
-        scroll-behavior: smooth;
-    }
-    .DashGlass{ 
-        margin-top: 6%;
-        display: grid;
-        height: 82%;
-        width: 97%;
-        border-radius: 2rem;
-        background: var(--glass);
-        overflow: hidden; 
-        grid-template-columns: 11rem auto 20rem;
-    }
-
-    /* -------------------Orders------------- */
-    .Order{
-        background: linear-gradient(
-            106.37deg,
-            #ffe1bc 29.63%,
-            #ffcfd1 51.55%,
-            #f3c6f1 90.85%
-          );
-        margin: 1%;
-         /* margin-left: 10%; */
-        height: 95%;
-        width: 1100px;
-        /* background-color: var(--black); */
-        background-color: white;
-        overflow-y: scroll;
-        border-radius: 2rem;
-    }
-    .Order::-webkit-scrollbar {
-        display: none;
-    }
-     .status{
-        padding: 8px;
-        border-radius: 9rem;
-     }
-
-     /* --------------------ServiceProvider------------------ */
-     .addbutton{
-        background: linear-gradient(
-            106.37deg,
-            #ffe1bc 29.63%,
-            #ffcfd1 51.55%,
-            #f3c6f1 90.85%
-          );
-        margin: 1% 3%;
-        height: 95%;
-        width: 115%;
-        background-color: white;
-        overflow-y: scroll;
-        border-radius: 2rem;
-    }
-    .addbutton::-webkit-scrollbar {
-        display: none;
-    }
-
-    .edit{
-      background: linear-gradient(
-          106.37deg,
-          #ffe1bc 29.63%,
-          #ffcfd1 51.55%,
-          #f3c6f1 90.85%
-        );
-      margin: 2% 5%;
-      height: 95%;
-      width: 120%;
-      background-color: white;
-      overflow-y: scroll;
-      border-radius: 2rem;
-  }
-  .edit::-webkit-scrollbar {
-      display: none;
-  }
-
-    .btn{
-        margin-top: 3%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        width: 14%;
-        border-radius: 1rem;
-    }
-    .title1{
-        color : var(--black);
-    }
-    
-    h4{
-        color : var(--black);
-        margin: 10%;
-    
-    
-    }
-
-    /* ------------------Services------------- */
-    @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Redressed&display=swap");
-.card{
-     margin-left: 10%;
-    margin-top: 10%; 
-
-} 
-/* .Services{
-    background: linear-gradient(
-        106.37deg,
-        #ffe1bc 29.63%,
-        #ffcfd1 51.55%,
-        #f3c6f1 90.85%
-      );
-      margin-top:10px; 
-      margin-left: 6%; 
-      overflow-y: scroll;
-      height: 95%;
-      width: 1300px;
-       border-radius: 3rem; 
-      scroll-behavior: smooth;
-      scrollbar-width: none;  
-} */
-.services{
-    background: linear-gradient(
-        106.37deg,
-        #ffe1bc 29.63%,
-        #ffcfd1 51.55%,
-        #f3c6f1 90.85%
-      );
-      /* border-radius: 1rem; */
-      /* margin-left: 10px; */
-      margin: 2%;
-      height: 93%;
-      width: 1650px;
-
-
-    /* margin-top:10px;  */
-     /* margin: 10%; */
-     overflow-y: auto; 
-    scroll-behavior: smooth;
-    overflow-x : hidden;
+/* -------------Dashboard------------------ */
+.Dashboard{
+  background: linear-gradient(90deg, #a8bccd 0%, #8080b1 35%, #405e65 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
 }
-.services::-webkit-scrollbar {
-    display: none;
+
+.DashGlass{ 
+  margin-top: 6%;
+  display: grid;
+  height: 82%;
+  width: 97%;
+  border-radius: 2rem;
+  background: var(--glass);
+  overflow: hidden; 
+  grid-template-columns: 11rem auto 20rem;
+}
+
+/* -------------------Orders------------- */
+.Order{
+  margin-left: 190%;
+  height: 90%;
+  width: 700%;
+  background-color: rgb(213, 212, 225);
+  overflow-y: scroll;
+  border-radius: 2rem;
+  margin-top: 15px;
+}
+
+.Order::-webkit-scrollbar {
+  display: none;
+}
+
+.status{
+  padding: 8px;
+  border-radius: 9rem;
+}
+
+/* --------------------ServiceProvider------------------ */
+.addbutton{
+  margin-left: 190%;
+  height: 90%;
+  width: 700%;
+  background-color: rgb(213, 212, 225);
+  overflow-y: scroll;
+  border-radius: 2rem;
+  margin-top: 15px;
+}
+.addbutton::-webkit-scrollbar {
+  display: none;
+}
+
+.edit{
+  margin: 2% 5%;
+  height: 95%;
+  width: 120%;
+  background-color: rgb(213, 212, 225);
+  overflow-y: scroll;
+  border-radius: 2rem;
+}
+
+.edit::-webkit-scrollbar {
+  display: none;
+}
+
+.btn{
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 20%;
+  border-radius: 1rem;
+  cursor: pointer;
 }
