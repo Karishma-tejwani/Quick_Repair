@@ -1,30 +1,10 @@
 import { useState, useEffect } from "react";
-import apiCall from "../Components/apiCall";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import "../Style/Style.css";
 import Background from "../Components/Background";
 
 function HomeCleaning() {
   const [service, setService] = useState([]);
-
-  // const fetchLink = () => {
-  //   apiCall("Home Cleaning", null, "GET", null, null)
-  //     .then((res) => {
-  //       res.json();
-
-  //       if (res) {
-  //         console.log(res);
-  //       }
-  //     })
-  //     .then((res) => setService(res))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   fetchLink();
-  // }, []);
 
   useEffect(() => {
     fetch("http://localhost:1234/getServiceTypeByName?name=Home Cleaning", {
