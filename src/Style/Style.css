@@ -359,6 +359,18 @@
   }
 }
 
+/* ----------------------About page------------- */
+.contain{
+  margin-left: 7%;
+}
+
+@media (max-width: 550px) {
+  .col-5 {
+    width: fit-content;
+    height: auto;
+  }
+}
+
 /* ---------------------Registration-------------------- */
 
 .register {
@@ -614,104 +626,6 @@ section::before {
     align-items: center;
   }
 }
-
-/* -----------------About------------------- */
-@media (max-width: 550px) {
-  .col-5 {
-    width: fit-content;
-    height: auto;
-  }
-}
-
-/* -------------------- AddServices----------------------- */
-/* .slider {
-  width: 100%;
-  height: 400px;
-}
-
-.slideshow,
-.slideshow img {
-  width: 100%;
-  height: 350px;
-}
-
-.slideshow {
-  transform: scale(0.7);
-  transition: 0.5s;
-}
-
-.slideshow-active {
-  width: 100%;
-  height: 350px;
-  filter: blur(0);
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.header {
-  margin: 30px auto;
-  text-align: center;
-  font-size: 60px;
-}
-
-.arrow {
-  font-size: 30px;
-  padding: 5px 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 3px #ccc;
-  display: flex;
-  width: 50px;
-  position: absolute;
-  top: 200px;
-  z-index: 100;
-  cursor: pointer;
-}
-
-.arrow-right {
-  right: 20px;
-}
-
-.arrow-left {
-  left: 20px;
-}
-
-.dot {
-  margin-top: 20px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px 3px #ccc;
-}
-
-.dot-active {
-  background: #121227;
-  box-shadow: 0 0 15px 10px #ccc;
-} */
-
-/* ------------Responsive service Screen-------------------- */
-/* @media screen and (max-width: 1145px) {
-  .header {
-    margin-top: 120px;
-    margin-left: 5px;
-    font-size: 60px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    margin-top: 120px;
-    margin-left: 5px;
-    font-size: 40px;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  .header {
-    margin-top: 120px;
-    margin-left: 5px;
-    font-size: 30px;
-  }
-}*/
 
 /* -------------Home Cleaning Service----------- */
 

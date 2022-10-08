@@ -4,7 +4,7 @@ import "../Style/Style.css";
 function About() {
   return (
     <>
-      <div className="container">
+      <div className="contain">
         <div className="row">
           <div className="col-6" data-aos="fade-up-right">
             <h1
