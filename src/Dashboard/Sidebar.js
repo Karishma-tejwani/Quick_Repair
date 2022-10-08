@@ -4,11 +4,10 @@ import { NavLink } from "react-router-dom";
 import {
   FaTh,
   FaBars,
-  FaUserAlt,
-  FaRegChartBar,
-  FaCommentAlt,
-  FaShoppingBag,
-  FaThList,
+  FaUsers,
+  FaCartPlus,
+  FaUserCog,
+  FaPhoneAlt,
 } from "react-icons/fa";
 
 const Sidebar = ({ children }) => {
@@ -23,27 +22,22 @@ const Sidebar = ({ children }) => {
     {
       path: "/Customers",
       name: "Customers",
-      icon: <FaUserAlt />,
+      icon: <FaUsers />,
     },
     {
       path: "/Orders",
       name: "Orders",
-      icon: <FaRegChartBar />,
+      icon: <FaCartPlus />,
     },
     {
-      path: "/Add",
-      name: "Add",
-      icon: <FaCommentAlt />,
-    },
-    {
-      path: "/Edit",
-      name: "Edit",
-      icon: <FaShoppingBag />,
+      path: "/Workers",
+      name: "Workers",
+      icon: <FaUserCog />,
     },
     {
       path: "/Services",
       name: "Services",
-      icon: <FaThList />,
+      icon: <FaPhoneAlt />,
     },
   ];
   return (

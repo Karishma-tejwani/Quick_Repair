@@ -43,6 +43,10 @@ main{
   padding: 5px;
 }
 
+.logo{
+  color: orange;
+}
+
 .sidebar{
   background: rgb(5, 5, 57);
   color: #fff;
