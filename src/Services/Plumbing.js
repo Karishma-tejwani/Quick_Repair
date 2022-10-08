@@ -1,25 +1,10 @@
 import { useState, useEffect } from "react";
-import apiCall from "../Components/apiCall";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "../Style/Style.css";
 
 function Plumbing() {
   const [service, setService] = useState([]);
   const [feedback, setFeedback] = useState([]);
-  // const getSeviceType = () => {
-  //   apiCall("getServiceTypeByName?name=Cleaning", null, "GET", null, null)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setService(() => res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getSeviceType();
-  // }, []);
 
   useEffect(() => {
     fetch("http://localhost:1234/getServiceTypeByName?name=Plumber", {
