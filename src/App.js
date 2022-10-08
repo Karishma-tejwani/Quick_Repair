@@ -20,14 +20,12 @@ import Customers from "./Dashboard/Customers";
 import Orders from "./Dashboard/Orders";
 import Edit from "./Dashboard/Edit";
 import Add from "./Dashboard/Add";
-// import AnimatedRoutes from "./Components/AnimatedRoutes";
 // import Footer from './Footer/Footer';
 
 function App() {
   return (
     <>
       <NavBar />
-      {/* <AnimatedRoutes /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -44,12 +42,12 @@ function App() {
         <Route path="*" element={<Notfound />} />
 
         {/* -------------Admin Dashboard---------- */}
-        <Route path="Dashboard" element={<Dashboard />} />
-        <Route path="Services" element={<Services />} />
-        <Route path="Customers" element={<Customers />} />
-        <Route path="Orders" element={<Orders />} />
-        <Route path="Add" element={<Add />} />
-        <Route path="Edit" element={<Edit />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Customers" element={<Customers />} />
+        <Route path="/Orders" element={<Orders />} />
+        <Route path="/Add" element={<Add />} />
+        <Route path="/Edit" element={<Edit />} />
       </Routes>
       {/* <Footer /> */}
     </>
