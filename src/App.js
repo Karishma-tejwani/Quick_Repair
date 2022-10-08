@@ -19,7 +19,7 @@ import Services from "./Dashboard/Services";
 import Customers from "./Dashboard/Customers";
 import Orders from "./Dashboard/Orders";
 import Edit from "./Dashboard/Edit";
-import Add from "./Dashboard/Add";
+import Workers from "./Dashboard/Workers";
 // import Footer from './Footer/Footer';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
         <Route path="/Services" element={<Services />} />
         <Route path="/Customers" element={<Customers />} />
         <Route path="/Orders" element={<Orders />} />
-        <Route path="/Add" element={<Add />} />
+        <Route path="/Workers" element={<Workers />} />
         <Route path="/Edit" element={<Edit />} />
       </Routes>
       {/* <Footer /> */}
