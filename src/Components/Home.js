@@ -1,14 +1,13 @@
 import { Carousel } from "react-bootstrap";
-import slider1 from "../images/Services.jpg";
-import slider2 from "../images/Banner.png";
-import slider3 from "../images/home.jpg";
+import slider1 from "../images/cover4.jpeg";
+import slider2 from "../images/cover.jpeg";
+import slider3 from "../images/cover1.jpg";
 import service1 from "../images/bg.PNG";
 import service2 from "../images/homeService.jpg";
 import "../Style/Style.css";
 import Typed from "react-typed";
 import "aos/dist/aos.css";
 import Footer from "../Footer/Footer";
-// import { motion } from "framer-motion/dist/framer-motion";
 
 function CardSlider() {
   const slides = [
