@@ -1,7 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Style/Style.css";
 import Background from "./companyBg";
+import {
+  FaUserAlt,
+  FaEnvelope,
+  FaLock,
+  FaPhoneAlt,
+  FaGlobe,
+  FaCity,
+  FaHome,
+} from "react-icons/fa";
 
 function Company() {
   const [name, setName] = useState("");
@@ -11,7 +21,8 @@ function Company() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-  const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -24,7 +35,6 @@ function Company() {
         address: address,
         city: city,
         country: country,
-        description: description,
       });
       alert("User Registation Successfully");
       setName("");
@@ -34,92 +44,122 @@ function Company() {
       setPhone("");
       setAddress("");
       setCountry("");
-      setDescription("");
     } catch (err) {
       alert("User Registation Failed");
     }
   }
+
+  function handleClick() {
+    navigate("/login");
+  }
+
   return (
     <>
       <Background />
       <div className="register-container">
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form
+          className="register-form shadow-lg p-2 my-5 rounded"
+          onSubmit={handleSubmit}
+        >
           <br></br>
           <h1>Register</h1>
-          <p>Fill in the Information Below</p>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-          />
 
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+          <div>
+            <FaUserAlt />
+            <input
+              type="text"
+              name="name"
+              placeholder="Company Name"
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
+          <div>
+            {" "}
+            <FaEnvelope />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="phone"
-            placeholder="phone"
-            onChange={(event) => {
-              setPhone(event.target.value);
-            }}
-          />
+          <div>
+            <FaLock />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="address"
-            placeholder="address"
-            onChange={(event) => {
-              setAddress(event.target.value);
-            }}
-          />
+          <div>
+            <FaPhoneAlt />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              onChange={(event) => {
+                setPhone(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="city"
-            placeholder="city"
-            onChange={(event) => {
-              setCity(event.target.value);
-            }}
-          />
+          <div>
+            <FaHome />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              onChange={(event) => {
+                setAddress(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="country"
-            placeholder="country"
-            onChange={(event) => {
-              setCountry(event.target.value);
-            }}
-          />
+          <div>
+            <FaCity />
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            name="description"
-            placeholder="description"
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
+          <div>
+            <FaGlobe />
+            <input
+              type="text"
+              name="country"
+              placeholder="Country"
+              onChange={(event) => {
+                setCountry(event.target.value);
+              }}
+            />
+          </div>
 
-          <button type="submit">Register</button>
+          <button type="submit" className="btnReg">
+            Register
+          </button>
+
+          <p
+            onClick={handleClick}
+            className="registered text-right fs-5 my-2"
+            style={{ color: "black" }}
+          >
+            Already registered log in?
+          </p>
         </form>
       </div>
     </>
