@@ -21,11 +21,25 @@ function Company() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    if (
+      name.length === 0 ||
+      password.length === 0 ||
+      email.length === 0 ||
+      phone.length === 0 ||
+      address.length === 0 ||
+      city.length === 0 ||
+      country.length === 0
+    ) {
+      setError(true);
+    }
+
     try {
       await axios.post("http://localhost:1234/registerAdmin", {
         name: name,
@@ -36,7 +50,9 @@ function Company() {
         city: city,
         country: country,
       });
+
       alert("User Registation Successfully");
+      navigate("/login");
       setName("");
       setEmail("");
       setPassword("");
@@ -70,11 +86,17 @@ function Company() {
               type="text"
               name="name"
               placeholder="Company Name"
+              required
               onChange={(event) => {
                 setName(event.target.value);
               }}
             />
           </div>
+          {error && name.length <= 0 ? (
+            <label className="label">Please enter Company name!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             {" "}
@@ -88,6 +110,11 @@ function Company() {
               }}
             />
           </div>
+          {error && email.length <= 0 ? (
+            <label className="label">Please enter Email!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             <FaLock />
@@ -100,6 +127,11 @@ function Company() {
               }}
             />
           </div>
+          {error && password.length <= 0 ? (
+            <label className="label">Please enter Password!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             <FaPhoneAlt />
@@ -112,6 +144,11 @@ function Company() {
               }}
             />
           </div>
+          {error && phone.length <= 0 ? (
+            <label className="label">Please enter Phone!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             <FaHome />
@@ -124,6 +161,11 @@ function Company() {
               }}
             />
           </div>
+          {error && address.length <= 0 ? (
+            <label className="label">Please enter Address!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             <FaCity />
@@ -136,6 +178,11 @@ function Company() {
               }}
             />
           </div>
+          {error && city.length <= 0 ? (
+            <label className="label">Please enter City!</label>
+          ) : (
+            ""
+          )}
 
           <div>
             <FaGlobe />
@@ -148,6 +195,11 @@ function Company() {
               }}
             />
           </div>
+          {error && country.length <= 0 ? (
+            <label className="label">Please enter Country!</label>
+          ) : (
+            ""
+          )}
 
           <button type="submit" className="btnReg">
             Register
