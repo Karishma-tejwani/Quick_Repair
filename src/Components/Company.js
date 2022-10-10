@@ -78,8 +78,8 @@ function Company() {
           onSubmit={handleSubmit}
         >
           <br></br>
-          <h1>Register</h1>
-
+          <h3>Company Registration</h3>
+          <br></br>
           <div>
             <FaUserAlt />
             <input

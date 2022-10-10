@@ -60,10 +60,6 @@ function Carpentry() {
         </Container>
       </div>
 
-      {/* <Container>
-        <Services />
-      </Container> */}
-
       <Container style={{ marginTop: "32%" }}>
         <h1 className="text-center">Feedback</h1>
         <Row>

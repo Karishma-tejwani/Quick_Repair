@@ -1,9 +1,41 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../Style/Style.css";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
+import { IoIosPin } from "react-icons/io";
 
 function Contact() {
-  function handleClick() {
-    alert("Thanks for submiting form!");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [msg, setMsg] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:1234/registerCustomer", {
+        name: name,
+        email: email,
+        phone: phone,
+        subject: subject,
+        msg: msg,
+      });
+      alert("Thanks for submiting form!");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSubject("");
+      setMsg("");
+    } catch (err) {
+      alert("Message send failed!");
+    }
   }
 
   return (
@@ -15,42 +47,42 @@ function Contact() {
               <h2>Contact Information</h2>
               <ul className="info">
                 <li>
-                  <span className="zmdi zmdi-pin zmdi-hc-2x"></span>
+                  <IoIosPin size={30} />
                   <span>Sukkur IBA University</span>
                 </li>
                 <li>
-                  <span className="zmdi zmdi-phone zmdi-hc-2x"></span>
+                  <FaPhoneAlt size={20} />
                   <span>+92(314)-4589672</span>
                 </li>
                 <li>
-                  <span className="zmdi zmdi-email zmdi-hc-2x"></span>
-                  <span>info@gmail.com</span>
+                  <FaEnvelope size={20} />
+                  <span>zoyamemon767@gmail.com</span>
                 </li>
               </ul>
 
               <ul className="social">
                 <li>
                   <a href="https://www.facebook.com">
-                    <i className="fab fa-facebook-f fa-2x"></i>
+                    <FaFacebookF size={30} />
                   </a>
                 </li>
                 <li>
                   <a href="fab fa-twitter">
-                    <i className="fab fa-twitter fa-2x"></i>
+                    <FaInstagram size={30} />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.instagram.com">
-                    <i className="fab fa-instagram fa-2x"></i>
+                    <FaTwitter size={30} />
                   </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="contactForm">
+          <div className="contactForm text-center">
             <h1>GET IN TOUCH</h1>
-            <form className="formBox">
+            <form className="formBox" onSubmit={handleSubmit}>
               <div className="row pt-5 mx-auto">
                 <div className="col-md-8 form-group mx-auto">
                   <input
@@ -58,6 +90,9 @@ function Contact() {
                     className="form-control"
                     placeholder="Fullname"
                     name="name"
+                    onChange={(event) => {
+                      setName(event.target.value);
+                    }}
                   />
                 </div>
                 <div className="col-md-8 form-group pt-2 mx-auto">
@@ -66,6 +101,9 @@ function Contact() {
                     className="form-control"
                     placeholder="Email address"
                     name="email"
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
                   />
                 </div>
                 <div className="col-md-8 form-group pt-2 mx-auto">
@@ -74,6 +112,9 @@ function Contact() {
                     className="form-control"
                     placeholder="Phone Number"
                     name="phone"
+                    onChange={(event) => {
+                      setPhone(event.target.value);
+                    }}
                   />
                 </div>
                 <div className="col-md-8 form-group pt-2 mx-auto">
@@ -82,6 +123,9 @@ function Contact() {
                     className="form-control"
                     placeholder="Subject"
                     name="subject"
+                    onChange={(event) => {
+                      setSubject(event.target.value);
+                    }}
                   />
                 </div>
                 <div className="col-md-8 form-group pt-2 mx-auto">
@@ -91,16 +135,14 @@ function Contact() {
                     rows={8}
                     placeholder="Write a message"
                     name="message"
+                    onChange={(event) => {
+                      setMsg(event.target.value);
+                    }}
                   />
                 </div>
-                <div className="col-md-8 pt-5 mx-auto">
-                  <input
-                    type="submit"
-                    onClick={handleClick}
-                    className="btn btn-primary sendBtn w-25"
-                    value="Send Message"
-                  />
-                </div>
+                <button type="submit" className="btn btn-primary sendBtn">
+                  Send Message
+                </button>
               </div>
             </form>
           </div>

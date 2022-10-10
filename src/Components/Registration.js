@@ -10,8 +10,6 @@ function Registration() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [description, setDescription] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -21,12 +19,14 @@ function Registration() {
         email: email,
         password: password,
         phone: phone,
+        address: address,
         city: city,
       });
       alert("User Registation Successfully");
       setName("");
       setEmail("");
       setPassword("");
+      setAddress("");
       setCity("");
       setPhone("");
     } catch (err) {
@@ -40,7 +40,6 @@ function Registration() {
         <form className="register-form" onSubmit={handleSubmit}>
           <br></br>
           <h1>Register</h1>
-          <p>Fill in the Information Below</p>
           <input
             type="text"
             name="name"
@@ -74,6 +73,15 @@ function Registration() {
             placeholder="phone"
             onChange={(event) => {
               setPhone(event.target.value);
+            }}
+          />
+
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            onChange={(event) => {
+              setAddress(event.target.value);
             }}
           />
 
