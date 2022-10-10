@@ -16,6 +16,7 @@ function Contact() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState("");
   const [msg, setMsg] = useState("");
+  const [error, setError] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -95,6 +96,11 @@ function Contact() {
                     }}
                   />
                 </div>
+                {error && name.length <= 0 ? (
+                  <label className="label">Please enter name!</label>
+                ) : (
+                  ""
+                )}
                 <div className="col-md-8 form-group pt-2 mx-auto">
                   <input
                     type="text"
@@ -106,6 +112,11 @@ function Contact() {
                     }}
                   />
                 </div>
+                {error && email.length <= 0 ? (
+                  <label className="label">Please enter email!</label>
+                ) : (
+                  ""
+                )}
                 <div className="col-md-8 form-group pt-2 mx-auto">
                   <input
                     type="number"
