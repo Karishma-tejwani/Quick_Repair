@@ -47,7 +47,7 @@ function Contact() {
               <h2>Contact Information</h2>
               <ul className="info">
                 <li>
-                  <IoIosPin size={30} />
+                  <IoIosPin size={25} />
                   <span>Sukkur IBA University</span>
                 </li>
                 <li>
