@@ -42,12 +42,13 @@ function App() {
         <Route path="*" element={<Notfound />} />
 
         {/* -------------Admin Dashboard---------- */}
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Service" element={<Service />} />
-        <Route path="/Customers" element={<Customers />} />
-        <Route path="/Orders" element={<Orders />} />
-        <Route path="/Workers/:id" element={<Workers />} />
-        <Route path="/Edit/:id" element={<Edit />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/customers" element={<Customers />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/workers" element={<Workers />} />
+        {/* <Route path="/Workers/:id" element={<Workers />} /> */}
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
       {/* <Footer /> */}
     </>

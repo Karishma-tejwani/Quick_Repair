@@ -1,126 +1,133 @@
-import React, { useState } from "react";
-import { Container } from "react-bootstrap";
-import useLocalState from "./useLocalState";
-import Background from "./Background";
+import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../Style/Style.css";
+import Background from "./Background";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 
-function Login() {
+function Registration() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [jwt, setJwt] = useLocalState("", "jwt");
+  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-  const sendLoginRequest = () => {
-    if (email == "") {
-      alert("Email shouldn't be empty");
-      return;
-    } else if (password == "") {
-      alert("Password shouldn't be empty");
-      return;
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (password.length === 0 || email.length === 0) {
+      setError(true);
     }
 
-    const reqBody = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email, password: password }),
-    };
+    // try {
+    //   await axios.post(
+    //     "http://localhost:1234/sysLogin?username=sim@gmail.com&password=123",
+    //     {
+    //       email: email,
+    //       password: password,
+    //     }
+    //   );
 
-    fetch("http://localhost:1234/loginCustomer", reqBody)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res["toke"] != null) {
-          localStorage.setItem("token", res["token"]); //token
-          localStorage.setItem("email", res["email_details"]["email"]); //email
-          setEmail("");
-        } else {
-          alert(res["message"]);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    //   setEmail("");
+    //   setPassword("");
 
-  // function sendLoginRequest() {
-  //   const reqBody = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   fetch("http://localhost:1234/loginCustomer", {
-  //     headers: "POST",
-  //     body: JSON.stringify(reqBody),
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 200) return Promise.all([res.json(), res.headers]);
-  //       else return Promise.reject("invalid login attempt");
-  //     })
-  //     .then(([body, headers]) => {
-  //       setJwt(headers.get("authorization"));
-  //       navigate("/home");
-  //     })
-  // .catch((err) => {
-  //   alert(err);
-  // });
-  // }
+    //   if (Response.key === "admin") {
+    //     navigate("/Dashboard");
+    //   } else if (Response.key === "customer") {
+    //     navigate("/");
+    //   }
+    // } catch (err) {
+    //   alert("User Login Failed");
+    // }
+
+    let item = { email, password };
+    let result = await fetch(
+      `http://localhost:1234/sysLogin?username=${email}&password=${password}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(item),
+      }
+    );
+    console.log("Befoer is: ", result);
+    result = await result.json();
+    console.log("After: ", result);
+    if (result.key === "admin") {
+      navigate("/Dashboard");
+    } else if (result.key === "Customer") {
+      navigate("/");
+    }
+  }
+
+  function handleClick() {
+    navigate("/register");
+  }
 
   return (
     <>
       <Background />
-      <Container>
-        <div className="container offset-md-3">
-          <div className="login-form shadow-lg mb-5 rounded col-md-6 m-5 p-5 text-center">
-            <h2>Login</h2>
-            <form className="signin-form" id="signin-form">
-              <div className="form-group m-2">
-                <label>
-                  <span className="zmdi zmdi-email material-icons-name"></span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="off"
-                  className="inputText"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-              </div>
-              <div className="form-group m-2">
-                <label>
-                  <span className="zmdi zmdi-lock material-icons-name"></span>
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  autoComplete="off"
-                  className="inputText"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-              </div>
+      <div className="register-container">
+        <form
+          className="register-form shadow-lg p-2 my-5 rounded"
+          onSubmit={handleSubmit}
+        >
+          <br></br>
+          <h3>Login</h3>
+          <br></br>
 
-              <button
-                id="submit"
-                type="button"
-                onClick={() => sendLoginRequest()}
-              >
-                Login
-              </button>
-
-              {/* <Button
-                title="Login"
-                style={{ backgroundColor: "blue" }}
-                cls="mybtn"
-                onClick={() => sendLoginRequest()}
-              /> */}
-            </form>
+          <div>
+            {" "}
+            <FaEnvelope />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
           </div>
-        </div>
-      </Container>
+          {error && email.length <= 0 ? (
+            <label className="label">Please enter Email!</label>
+          ) : (
+            ""
+          )}
+
+          <div>
+            <FaLock />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+          </div>
+          {error && password.length <= 0 ? (
+            <label className="label">Please enter Password!</label>
+          ) : (
+            ""
+          )}
+
+          <button type="submit" className="btnReg">
+            Login
+          </button>
+
+          <p
+            onClick={handleClick}
+            className="registered text-right fs-5 my-2"
+            style={{ color: "black" }}
+          >
+            Not registered click here!
+          </p>
+        </form>
+      </div>
     </>
   );
 }
 
-export default Login;
+export default Registration;

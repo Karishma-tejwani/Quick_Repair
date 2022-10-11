@@ -8,8 +8,8 @@ const Dashboard = () => {
   return (
     <div className="Dashboard">
       <div className="DashGlass">
-        {/* <Sidebar /> */}
-        <ToggleBtn />
+        <Sidebar />
+        {/* <ToggleBtn /> */}
       </div>
     </div>
   );
