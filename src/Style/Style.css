@@ -7,6 +7,31 @@
   font-family: "Indie Flower", cursive;
 }
 
+/* ------------------------Toggle button--------------------- */
+
+.toggle{
+  border: none;
+  font-size: 18px;
+  padding: 7px 20px 6px 20px;
+  background-color: #ccc;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  font-weight: bold;
+}
+
+.toggle.active{
+  background-color: green;
+  color: #fff;
+}
+
+.toggle-close{
+  background-color: red;
+  color: white;
+}
+
+
 /* --------------------Background--------------- */
 #videoBg {
   position: fixed;

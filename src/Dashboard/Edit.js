@@ -29,12 +29,12 @@ function Edit() {
     const val = { name, nic, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch(`http://localhost:1234/updateSPByAdminId?id=11`, {
+    fetch(`http://localhost:1234/addServiceProviderByAdminId/:${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),
     }).then(() => {
-      console.log("Record Updated!");
+      console.log("Record Updated!", id);
     });
   };
 
