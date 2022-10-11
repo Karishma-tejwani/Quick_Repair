@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Style/Style.css";
@@ -18,27 +17,6 @@ function Registration() {
     if (password.length === 0 || email.length === 0) {
       setError(true);
     }
-
-    // try {
-    //   await axios.post(
-    //     "http://localhost:1234/sysLogin?username=sim@gmail.com&password=123",
-    //     {
-    //       email: email,
-    //       password: password,
-    //     }
-    //   );
-
-    //   setEmail("");
-    //   setPassword("");
-
-    //   if (Response.key === "admin") {
-    //     navigate("/Dashboard");
-    //   } else if (Response.key === "customer") {
-    //     navigate("/");
-    //   }
-    // } catch (err) {
-    //   alert("User Login Failed");
-    // }
 
     let item = { email, password };
     let result = await fetch(
