@@ -131,7 +131,7 @@ main{
 }
 
 /* --------------------ServiceProvider------------------ */
-.addbutton{
+/* .addbutton{
   margin-left: 190%;
   height: 90%;
   width: 700%;
@@ -142,7 +142,7 @@ main{
 }
 .addbutton::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .edit{
   margin: 2% 5%;
@@ -157,7 +157,7 @@ main{
   display: none;
 }
 
-/* .btn{
+.btn{
   margin-top: 3%;
   justify-content: center;
   align-items: center;
@@ -165,4 +165,4 @@ main{
   width: 20%;
   border-radius: 1rem;
   cursor: pointer;
-} */
+}
