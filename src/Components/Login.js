@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../Style/Style.css";
 import Background from "./Background";
 import { FaEnvelope, FaLock } from "react-icons/fa";
@@ -10,6 +10,8 @@ function Registration() {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
+  const { id } = useParams();
+  // console.log("login id: ", id);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -30,11 +32,11 @@ function Registration() {
         body: JSON.stringify(item),
       }
     );
-    console.log("Befoer is: ", result);
+
     result = await result.json();
-    console.log("After: ", result);
     if (result.key === "admin") {
-      navigate("/Dashboard");
+      navigate(`/Dashboard/:${result.admin.id}`);
+      console.log("id is ", result.admin.id);
     } else if (result.key === "Customer") {
       navigate("/");
     }

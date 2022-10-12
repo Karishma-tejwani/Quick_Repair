@@ -42,7 +42,7 @@ function App() {
         <Route path="*" element={<Notfound />} />
 
         {/* -------------Admin Dashboard---------- */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="/service" element={<Service />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/orders" element={<Orders />} />
