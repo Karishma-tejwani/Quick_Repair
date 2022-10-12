@@ -35,7 +35,7 @@ function Registration() {
 
     result = await result.json();
     if (result.key === "admin") {
-      navigate(`/Dashboard/:${result.admin.id}`);
+      navigate(`/Dashboard/${result.admin.id}`);
       console.log("id is ", result.admin.id);
     } else if (result.key === "Customer") {
       navigate("/");
