@@ -6,11 +6,6 @@ import "../Style/Admin.css";
 function Customers() {
   const [users, setUsers] = useState([]);
 
-  // const getUsers = async () => {
-  //   const response = await fetch("http://localhost:1234/getAllCustomers");
-  //   setUsers(await response.json());
-  // };
-
   useEffect(() => {
     fetch("http://localhost:1234/getAllCustomers", {
       method: "GET",
@@ -19,7 +14,6 @@ function Customers() {
       .then((result) => {
         setUsers(result);
       });
-    // getUsers();
   }, []);
 
   return (
