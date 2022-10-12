@@ -46,7 +46,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/workers" element={<Workers />} />
+        <Route path="/workers/:id" element={<Workers />} />
         <Route path="/edit/:id" element={<Edit />} />
       </Routes>
       {/* <Footer /> */}

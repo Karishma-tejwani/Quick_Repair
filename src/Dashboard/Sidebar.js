@@ -10,12 +10,12 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 
-const Sidebar = ({ children }) => {
+const Sidebar = ({ children, id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: "/Dashboard",
+      path: `/Dashboard/${id}`,
       name: "Dashboard",
       icon: <FaTh />,
     },
@@ -30,7 +30,7 @@ const Sidebar = ({ children }) => {
       icon: <FaCartPlus />,
     },
     {
-      path: "/Workers",
+      path: `/Workers/${id}`,
       name: "Workers",
       icon: <FaUserCog />,
     },
