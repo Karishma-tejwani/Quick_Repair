@@ -1,60 +1,43 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Table from "react-bootstrap/Table";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import "../Style/Admin.css";
 
 function Customers() {
-  // const[currentPage, setCurrentPage] = useState(1);
-  // const[custPerPage, setCustPerPage] = useState(10);
-  const [users, setUsers] = useState([
-    {
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "0303-3585181",
-      Address: "Sukkur IBA",
-      City: "Sukkur",
-      Country: "Pakistan",
-    },
-    {
-      UserName: "Zoya",
-      Email: "zoya@gmail.com",
-      Phone: "0303-2568988",
-      Address: "Sukkur IBA",
-      City: "Sukkur",
-      Country: "Pakistan",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
 
-  // useEffect(() =>{
-  //     fetch("https://dummy.restapiexample.com/api/v1/employees", {method : 'GET'}).then((res) =>
-  //         res.json()).then((res.data) =>{
-  //             setUsers(()=> res);
-  //         });
-  //       }, []);
+  // const getUsers = async () => {
+  //   const response = await fetch("http://localhost:1234/getAllCustomers");
+  //   setUsers(await response.json());
+  // };
 
-  // const indexOfLastCust = currentPage*custPerPage;
-  // const indexOfFirstCust = indexOfLastCust - custPerPage;
-  // const currentCust = users.slice(indexOfFirstCust , indexOfLastCust);
+  useEffect(() => {
+    fetch("http://localhost:1234/getAllCustomers", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setUsers(result);
+      });
+    // getUsers();
+  }, []);
 
   return (
     <>
       <div className="Dashboard">
         <div className="DashGlass">
           <Sidebar />
-          {/* <Container className="Container-list">  */}
+
           <div className="Row">
             <h2>Customers List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>
                 <tr>
-                  <th>Username</th>
+                  <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Address</th>
                   <th>City</th>
-                  <th>Country</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,19 +45,17 @@ function Customers() {
                   return (
                     <>
                       <tr key={i}>
-                        <td>{itm.UserName}</td>
-                        <td>{itm.Email}</td>
-                        <td>{itm.Phone}</td>
-                        <td>{itm.Address}</td>
-                        <td>{itm.City}</td>
-                        <td>{itm.Country}</td>
+                        <td>{itm.name}</td>
+                        <td>{itm.email}</td>
+                        <td>{itm.phone}</td>
+                        <td>{itm.address}</td>
+                        <td>{itm.city}</td>
                       </tr>
                     </>
                   );
                 })}
               </tbody>
             </Table>
-            {/* </Container>  */}
           </div>
         </div>
       </div>

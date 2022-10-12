@@ -3,6 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Button, Row, Modal, Form, Col, Table } from "react-bootstrap";
+import { FaTrash, FaRegEdit } from "react-icons/fa";
 
 function Workers() {
   const [showModal, setShow] = useState(false);
@@ -91,7 +92,7 @@ function Workers() {
                         <td>{val.city}</td>
                         <td>{val.country}</td>
                         <td className="d-flex">
-                          <Button variant="outline-success mx-2 w-25">
+                          {/* <Button variant="outline-success mx-2 w-25">
                             <span>
                               <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
                             </span>
@@ -100,6 +101,12 @@ function Workers() {
                             <span>
                               <i className="zmdi zmdi-delete zmdi-hc-2x"></i>
                             </span>
+                          </Button> */}
+                          <Button variant="outline-success mx-2 w-100">
+                            <FaRegEdit />
+                          </Button>
+                          <Button variant="outline-danger mx-2 w-100">
+                            <FaTrash />
                           </Button>
                         </td>
                       </tr>

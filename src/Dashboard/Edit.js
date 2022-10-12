@@ -3,6 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Button, Row, Modal, Form, Col, Table } from "react-bootstrap";
+import { FaTrash, FaRegEdit } from "react-icons/fa";
 
 function Edit() {
   const [showModal, setShow] = useState(false);
@@ -20,9 +21,8 @@ function Edit() {
   const [getData, setData] = useState([]);
 
   const { id } = useParams();
-  const navigate = useNavigate();
-
   console.log("id", id);
+
   // update data
   const updateData = (e) => {
     e.preventDefault();
@@ -91,15 +91,17 @@ function Edit() {
                         <td>{val.city}</td>
                         <td>{val.country}</td>
                         <td className="d-flex">
-                          <Button variant="outline-success mx-2 w-25">
-                            <span>
+                          <NavLink
+                            to={`/edit/${val.id}`}
+                            variant="outline-success mx-2 w-100"
+                          >
+                            {/* <span>
                               <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
-                            </span>
-                          </Button>
-                          <Button variant="outline-danger mx-2 w-25">
-                            <span>
-                              <i className="zmdi zmdi-delete zmdi-hc-2x"></i>
-                            </span>
+                            </span> */}
+                            <FaRegEdit />
+                          </NavLink>
+                          <Button variant="outline-danger mx-2 w-100">
+                            <FaTrash />
                           </Button>
                         </td>
                       </tr>
@@ -113,7 +115,7 @@ function Edit() {
             <Modal.Header closeButton>
               <Modal.Title className="title1">
                 {" "}
-                Fill Form to Add Service Provider
+                Update Service Provider Data
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -195,8 +197,8 @@ function Edit() {
               </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={addData}>
-                Save
+              <Button variant="secondary" onClick={updateData}>
+                Update
               </Button>
               <Button variant="danger" onClick={handleClose}>
                 Close
