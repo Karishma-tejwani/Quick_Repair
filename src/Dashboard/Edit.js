@@ -20,23 +20,34 @@ function Edit() {
   const [getData, setData] = useState([]);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  //update
+  console.log("id", id);
+  // update data
   const updateData = (e) => {
     e.preventDefault();
 
-    console.log("update called");
     const val = { name, nic, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch(`http://localhost:1234/addServiceProviderByAdminId/:${id}`, {
+    fetch(`http://localhost:1234/updateSPByAdminId?id=${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),
     }).then(() => {
-      console.log("Record Updated!", id);
+      setData((prev) => [...prev, val]);
     });
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:1234/getServiceProviderByAdminId?adminId=${id}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+      });
+  }, []);
 
   return (
     <>
@@ -45,6 +56,9 @@ function Edit() {
           <Sidebar />
 
           <div className="addbutton">
+            <Button variant="success " className="btn" onClick={handleShow}>
+              Add Service Provider
+            </Button>{" "}
             <Table
               striped
               bordered
@@ -77,17 +91,11 @@ function Edit() {
                         <td>{val.city}</td>
                         <td>{val.country}</td>
                         <td className="d-flex">
-                          {/* <NavLink to={`/Edit?${val.id}`}> */}
-                          <Button
-                            variant="outline-success mx-2 w-25"
-                            // onClick={updateData}
-                            onClick={handleShow}
-                          >
+                          <Button variant="outline-success mx-2 w-25">
                             <span>
                               <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
                             </span>
                           </Button>
-                          {/* </NavLink> */}
                           <Button variant="outline-danger mx-2 w-25">
                             <span>
                               <i className="zmdi zmdi-delete zmdi-hc-2x"></i>
@@ -101,7 +109,6 @@ function Edit() {
               </tbody>
             </Table>
           </div>
-
           <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title className="title1">
@@ -110,7 +117,7 @@ function Edit() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form>
+              <Form.Group>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridName">
                     <Form.Label>Name</Form.Label>
@@ -185,12 +192,12 @@ function Edit() {
                     />
                   </Form.Group>
                 </Row>
-              </Form>
+              </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-              {/* <Button variant="secondary" onClick={updateData}>
-                Update
-              </Button> */}
+              <Button variant="secondary" onClick={addData}>
+                Save
+              </Button>
               <Button variant="danger" onClick={handleClose}>
                 Close
               </Button>

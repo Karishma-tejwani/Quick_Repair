@@ -25,11 +25,11 @@ h2{
   color: var(--black);
 }
 
-/* -----------------Sidebar---------------- */
+/* -----------------Sidebar---------------- */ 
 .container{
-  display:flex;
+  display: flex;
   margin-left: -0.5%;
-  margin-top: 1%;
+  /* margin-top: 1%;  */
 }
 
 main{

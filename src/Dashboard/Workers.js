@@ -53,9 +53,9 @@ function Workers() {
     <>
       <div className="Dashboard">
         <div className="DashGlass">
-          {/* <Sidebar /> */}
+          <Sidebar />
 
-          <div>
+          <div className="addbutton">
             <Button variant="success " className="btn" onClick={handleShow}>
               Add Service Provider
             </Button>{" "}
