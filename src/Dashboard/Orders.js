@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Table } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 const makeStyle = (status) => {
   if (status === "Approved") {
     return {
@@ -21,26 +22,18 @@ const makeStyle = (status) => {
   }
 };
 const Orders = () => {
-  const [orders, setOrders] = useState([
-    {
-      OrderId: "1",
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "03033585181",
-      city: "Sukkur",
-      ServiceName: "Plumber",
-      status: "Approved",
-    },
-    {
-      OrderId: "1",
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "03033585181",
-      city: "Sukkur",
-      ServiceName: "Plumber",
-      status: "Pending",
-    },
-  ]);
+  const [orders, setOrders] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:1234/getOrdersByAdminId?id=${id}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setOrders(result);
+      });
+  }, []);
 
   return (
     <div className="Dashboard">
