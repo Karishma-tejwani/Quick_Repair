@@ -51,7 +51,7 @@ function Company() {
         country: country,
       });
 
-      alert("User Registation Successfully");
+      alert("admin Registered Successfully");
       navigate("/login");
       setName("");
       setEmail("");
@@ -61,7 +61,7 @@ function Company() {
       setAddress("");
       setCountry("");
     } catch (err) {
-      alert("User Registation Failed");
+      alert("Admin Registration Failed");
     }
   }
 
