@@ -22,6 +22,7 @@ import Edit from "./Dashboard/Edit";
 import Workers from "./Dashboard/Workers";
 import { Provider } from "react-redux";
 import Store from "./redux/auth/Store";
+import Booking from "./Components/Booking";
 // import Footer from './Footer/Footer';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
           <Route path="*" element={<Notfound />} />
 
           {/* -------------Admin Dashboard---------- */}
