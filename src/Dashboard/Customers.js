@@ -23,7 +23,7 @@ function Customers() {
           <Sidebar />
 
           <div className="Row">
-            <h2>Customers List</h2>
+            <h2 className="text-center">Customers List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>
                 <tr>

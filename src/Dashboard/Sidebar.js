@@ -25,7 +25,7 @@ const Sidebar = ({ children, id }) => {
       icon: <FaUsers />,
     },
     {
-      path: `/Orders/${id}`,
+      path: `/Orders`,
       name: "Orders",
       icon: <FaCartPlus />,
     },

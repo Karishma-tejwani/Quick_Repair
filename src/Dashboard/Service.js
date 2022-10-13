@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Table } from "react-bootstrap";
@@ -20,72 +20,57 @@ const makeStyle = (status) => {
     };
   }
 };
-const Service = () => {
-  const [orders, setOrders] = useState([
-    {
-      OrderId: "1",
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "03033585181",
-      city: "Sukkur",
-      ServiceName: "Plumber",
-      status: "Approved",
-    },
-    {
-      OrderId: "1",
-      UserName: "Simran",
-      Email: "simivanjhara@gmail.com",
-      Phone: "03033585181",
-      city: "Sukkur",
-      ServiceName: "Plumber",
-      status: "Pending",
-    },
-  ]);
+
+function Service() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:1234/getAllServices", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setUsers(result);
+      });
+  }, []);
 
   return (
-    <div className="Dashboard">
-      <div className="DashGlass">
-        <Sidebar />
+    <>
+      <div className="Dashboard">
+        <div className="DashGlass">
+          <Sidebar />
 
-        <div className="Order">
-          <Table striped bordered hover variant="light" className="table-css">
-            <thead>
-              <tr>
-                <th>OrderId</th>
-                <th>UserName</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>ServiceName</th>
-                <th>City</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((itm, i) => {
-                return (
-                  <>
-                    <tr key={i}>
-                      <td>{itm.OrderId}</td>
-                      <td>{itm.UserName}</td>
-                      <td>{itm.Email}</td>
-                      <td>{itm.Phone}</td>
-                      <td>{itm.ServiceName}</td>
-                      <td>{itm.City}</td>
-                      <td>
-                        <span className="status" style={makeStyle(itm.status)}>
-                          {itm.status}
-                        </span>
-                      </td>
-                    </tr>
-                  </>
-                );
-              })}
-            </tbody>
-          </Table>
+          <div className="Row">
+            <h2 className="text-center">Services</h2>
+            <Table striped bordered hover variant className="table-css">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Service Type</th>
+                  <th>Description</th>
+                  <th>Charges</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((itm, i) => {
+                  return (
+                    <>
+                      <tr key={i}>
+                        <td>{itm.image}</td>
+                        <td>{itm.serviceName}</td>
+                        <td>{itm.description}</td>
+                        <td>{itm.charges}</td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Service;
