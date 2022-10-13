@@ -6,7 +6,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { isLogin } from "../redux/auth/Action.js";
 
-function Registration() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -114,4 +114,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default Login;

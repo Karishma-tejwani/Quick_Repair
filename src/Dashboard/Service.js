@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { Card, CardGroup, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 
 // import React, { useState, useEffect } from "react";
@@ -25,26 +28,26 @@ import "../Style/Admin.css";
 // };
 
 // function Service() {
-//   const [users, setUsers] = useState([]);
+// const [users, setUsers] = useState([]);
 
-//   useEffect(() => {
-//     fetch("http://localhost:1234/getAllServices", {
-//       method: "GET",
-//     })
-//       .then((res) => res.json())
-//       .then((result) => {
-//         setUsers(result);
-//       });
-//   }, []);
+// useEffect(() => {
+//   fetch("http://localhost:1234/getAllServices", {
+//     method: "GET",
+//   })
+//     .then((res) => res.json())
+//     .then((result) => {
+//       setUsers(result);
+//     });
+// }, []);
 
 //   return (
 //     <>
-//       <div className="Dashboard">
-//         <div className="Dash">
-//           <Sidebar />
-//           <h1 className="text-center" style={{ color: "white" }}>
-//             Services
-//           </h1>
+// <div className="Dashboard">
+//   <div className="Dash">
+//     <Sidebar />
+//     <h1 className="text-center" style={{ color: "white" }}>
+//       Services
+//     </h1>
 {
   /* <Table striped bordered hover variant className="table-css">
             <thead>
@@ -110,35 +113,50 @@ import "../Style/Admin.css";
 // export default Service;
 
 function Service() {
+  const [users, setUsers] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch("http://localhost:1234/getAllServices", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setUsers(result);
+      });
+  }, []);
+
   return (
     <>
-      <CardGroup>
-        {Array.from({ length: 10 }).map((_, index) => (
-          <Card className={"card-grid"} key={index}>
-            <Card.Img
-              className={"card-img"}
-              variant="bottom"
-              src={
-                "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg"
-              }
-            />
-            <Card.Body>
-              <Card.Title>
-                <strong>Lorem ipsum dolor sit amet</strong>
-              </Card.Title>
-              <Card.Text>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dolores harum, illum. Accusamus assumenda commodi consequuntur
-                  cumque, delectus deleniti dolorum eum illum nam nostrum
-                  provident quaerat quisquam quos reiciendis, reprehenderit
-                  voluptas!
-                </p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </CardGroup>
+      <div className="Dashboard">
+        <div className="DashGlass my-2" style={{ display: "grid" }}>
+          <Sidebar id={id} />
+          <div className="Row" style={{ marginTop: "45%" }}>
+            <h1 className="text-center">Services</h1>
+
+            {users.map((itm, index) => {
+              return (
+                <div className="col-md-4" style={{ display: "inline-block" }}>
+                  <CardGroup>
+                    <Card key={index}>
+                      <Card.Img variant="bottom" src={itm.image} />
+                      <Card.Body>
+                        <Card.Title>
+                          <strong>{itm.serviceName}</strong>
+                        </Card.Title>
+                        <Card.Text>
+                          <p>{itm.description}</p>
+                          <p>Rs {itm.charges}/-</p>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </CardGroup>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

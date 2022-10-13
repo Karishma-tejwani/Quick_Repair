@@ -20,11 +20,6 @@ const Sidebar = ({ children, id }) => {
       icon: <FaTh />,
     },
     {
-      path: "/customers",
-      name: "Customers",
-      icon: <FaUsers />,
-    },
-    {
       path: `/orders/${id}`,
       name: "Orders",
       icon: <FaCartPlus />,
@@ -33,6 +28,11 @@ const Sidebar = ({ children, id }) => {
       path: `/workers/${id}`,
       name: "Workers",
       icon: <FaUserCog />,
+    },
+    {
+      path: "/customers",
+      name: "Customers",
+      icon: <FaUsers />,
     },
     {
       path: "/service",
