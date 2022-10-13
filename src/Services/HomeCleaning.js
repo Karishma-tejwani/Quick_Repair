@@ -5,6 +5,7 @@ import Background from "../Components/Background";
 
 function HomeCleaning() {
   const [service, setService] = useState([]);
+  const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:1234/getServiceTypeByName?name=Home Cleaning", {
@@ -13,6 +14,16 @@ function HomeCleaning() {
       .then((res) => res.json())
       .then((res) => setService(res));
   });
+
+  useEffect(() => {
+    fetch("http://localhost:1234/getAllFeedback", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setFeedback(result);
+      });
+  }, []);
 
   return (
     <>
@@ -64,25 +75,21 @@ function HomeCleaning() {
       <Container style={{ marginTop: "32%" }}>
         <h1 className="text-center">Feedback</h1>
         <Row>
-          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
-            <Card.Body>
-              <Card.Title>Quick Repair</Card.Title>
-              <Card.Subtitle>
-                <span style={{ color: "goldenrod" }}>
-                  {" "}
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                </span>
-              </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+          {feedback.map((value, index) => {
+            return (
+              <Card
+                className="mx-4 my-3"
+                style={{ width: "22rem" }}
+                key={index}
+              >
+                <Card.Body>
+                  <Card.Title>Quick Repair Services</Card.Title>
+                  <Card.Subtitle>{value.rating}</Card.Subtitle>
+                  <Card.Text>{value.review}</Card.Text>
+                </Card.Body>
+              </Card>
+            );
+          })}
         </Row>
       </Container>
     </>
