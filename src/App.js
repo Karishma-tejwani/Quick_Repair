@@ -20,36 +20,40 @@ import Customers from "./Dashboard/Customers";
 import Orders from "./Dashboard/Orders";
 import Edit from "./Dashboard/Edit";
 import Workers from "./Dashboard/Workers";
+import { Provider } from "react-redux";
+import Store from "./redux/auth/Store";
 // import Footer from './Footer/Footer';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cleaning" element={<HomeCleaning />} />
-        <Route path="/carpentry" element={<Carpentry />} />
-        <Route path="/electrical" element={<ElectricalAppliance />} />
-        <Route path="/plumbing" element={<Plumbing />} />
-        <Route path="/painting" element={<HomePainting />} />
-        <Route path="/laundry" element={<Laundry />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Registration />} />
-        <Route path="/company" element={<Company />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Notfound />} />
+      <Provider store={Store}>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cleaning" element={<HomeCleaning />} />
+          <Route path="/carpentry" element={<Carpentry />} />
+          <Route path="/electrical" element={<ElectricalAppliance />} />
+          <Route path="/plumbing" element={<Plumbing />} />
+          <Route path="/painting" element={<HomePainting />} />
+          <Route path="/laundry" element={<Laundry />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration />} />
+          <Route path="/company" element={<Company />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Notfound />} />
 
-        {/* -------------Admin Dashboard---------- */}
-        <Route path="/dashboard/:id" element={<Dashboard />} />
-        <Route path="/workers/:id" element={<Workers />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/customers" element={<Customers />} />
-      </Routes>
-      {/* <Footer /> */}
+          {/* -------------Admin Dashboard---------- */}
+          <Route path="/dashboard/:id" element={<Dashboard />} />
+          <Route path="/workers/:id" element={<Workers />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/customers" element={<Customers />} />
+        </Routes>
+        {/* <Footer /> */}
+      </Provider>
     </>
   );
 }

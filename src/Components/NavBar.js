@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 import "../Style/Style.css";
 import logo from "../images/log.png";
 import { NavDropdown } from "react-bootstrap";
-import { Navbar } from "react-bootstrap";
-import { FaBars } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
-
+  const auth = useSelector((state) => state.auth);
+  console.log("login file", auth);
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -84,7 +84,7 @@ function NavBar() {
               <NavDropdown id="navbarScrollingDropdown" menuVariant="dark">
                 <NavDropdown.Item>
                   <NavLink to="/login" className="dropdown">
-                    Login
+                    {auth ? "Logout" : "Login"}
                   </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>

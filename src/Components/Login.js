@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../Style/Style.css";
 import Background from "./Background";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { isLogin } from "../redux/auth/Action.js";
 
 function Registration() {
   const [email, setEmail] = useState("");
@@ -11,7 +13,7 @@ function Registration() {
 
   const navigate = useNavigate();
   const { id } = useParams();
-  // console.log("login id: ", id);
+  const dispatch = useDispatch();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -36,9 +38,11 @@ function Registration() {
     result = await result.json();
     if (result.key === "admin") {
       navigate(`/Dashboard/${result.admin.id}`);
+      dispatch(isLogin());
       console.log("id is ", result.admin.id);
     } else if (result.key === "Customer") {
       navigate("/");
+      dispatch(isLogin());
     }
   }
 
