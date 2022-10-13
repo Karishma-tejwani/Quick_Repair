@@ -87,6 +87,24 @@ function Workers() {
                 {getData.map((val, i) => {
                   return (
                     <tr key={i}>
+                      <td className="d-flex">
+                        <Button
+                          onClick={() => {
+                            alert("click");
+                          }}
+                          variant="outline-success mx-2 w-100"
+                        >
+                          <FaRegEdit />
+                        </Button>
+                        <Button
+                          onClick={() => {
+                            alert("click");
+                          }}
+                          variant="outline-danger mx-2 w-100"
+                        >
+                          <FaTrash />
+                        </Button>
+                      </td>
                       <td>{val.name}</td>
                       <td>{val.nic}</td>
                       <td>{val.phone}</td>
@@ -95,16 +113,6 @@ function Workers() {
                       <td>{val.city}</td>
                       <td>{val.country}</td>
                       <td className="d-flex">
-                        {/* <Button variant="outline-success mx-2 w-25">
-                            <span>
-                              <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
-                            </span>
-                          </Button>
-                          <Button variant="outline-danger mx-2 w-25">
-                            <span>
-                              <i className="zmdi zmdi-delete zmdi-hc-2x"></i>
-                            </span>
-                          </Button> */}
                         <Button variant="outline-success mx-2 w-100">
                           <FaRegEdit />
                         </Button>

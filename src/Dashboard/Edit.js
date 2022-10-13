@@ -90,16 +90,16 @@ function Edit() {
                         <td>{val.serviceType}</td>
                         <td>{val.city}</td>
                         <td>{val.country}</td>
-                        <td className="d-flex">
-                          <NavLink
-                            to={`/edit/${val.id}`}
+                        <td>
+                          <button
+                            onClick={() => {
+                              alert("click");
+                            }}
                             variant="outline-success mx-2 w-100"
                           >
-                            {/* <span>
-                              <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
-                            </span> */}
+                            {/* to={`/edit/${val.id}`} */}
                             <FaRegEdit />
-                          </NavLink>
+                          </button>
                           <Button variant="outline-danger mx-2 w-100">
                             <FaTrash />
                           </Button>

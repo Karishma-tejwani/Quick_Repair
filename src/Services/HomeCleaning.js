@@ -83,44 +83,6 @@ function HomeCleaning() {
               </Card.Text>
             </Card.Body>
           </Card>
-
-          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
-            <Card.Body>
-              <Card.Title>Justdial</Card.Title>
-              <Card.Subtitle>
-                <span style={{ color: "goldenrod" }}>
-                  {" "}
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                </span>
-              </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-
-          <Card className="mx-4 my-3" style={{ width: "22rem" }}>
-            <Card.Body>
-              <Card.Title>Kam Kaj</Card.Title>
-              <Card.Subtitle>
-                <span style={{ color: "goldenrod" }}>
-                  {" "}
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                  <i class="zmdi zmdi-star"></i>
-                </span>
-              </Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
         </Row>
       </Container>
     </>
