@@ -30,7 +30,7 @@ function Edit() {
     const val = { name, nic, phone, serviceType, address, city, country };
     console.log(val);
 
-    fetch(`http://localhost:1234/updateSPByAdminId?id=${id}`, {
+    fetch(`http://localhost:1234/updateSPById?SPId=${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(val),

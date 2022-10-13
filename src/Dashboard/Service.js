@@ -135,13 +135,6 @@ function Service() {
                   voluptas!
                 </p>
               </Card.Text>
-              <Button
-                variant="primary"
-                href="www.google.com"
-                rel={"noopener noreferrer"}
-              >
-                Learn More
-              </Button>
             </Card.Body>
           </Card>
         ))}

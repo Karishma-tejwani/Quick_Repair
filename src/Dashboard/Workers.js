@@ -53,11 +53,15 @@ function Workers() {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass">
-          <Sidebar />
+        <div className="DashGlass my-2">
+          <Sidebar id={id} />
 
-          <div className="addbutton">
-            <Button variant="success " className="btn" onClick={handleShow}>
+          <div className="addbutton" style={{ marginTop: "45%" }}>
+            <Button
+              variant="success "
+              className="btn mx-2"
+              onClick={handleShow}
+            >
               Add Service Provider
             </Button>{" "}
             <Table
@@ -82,17 +86,16 @@ function Workers() {
               <tbody>
                 {getData.map((val, i) => {
                   return (
-                    <>
-                      <tr key={i}>
-                        <td>{val.name}</td>
-                        <td>{val.nic}</td>
-                        <td>{val.phone}</td>
-                        <td>{val.address}</td>
-                        <td>{val.serviceType}</td>
-                        <td>{val.city}</td>
-                        <td>{val.country}</td>
-                        <td className="d-flex">
-                          {/* <Button variant="outline-success mx-2 w-25">
+                    <tr key={i}>
+                      <td>{val.name}</td>
+                      <td>{val.nic}</td>
+                      <td>{val.phone}</td>
+                      <td>{val.address}</td>
+                      <td>{val.serviceType}</td>
+                      <td>{val.city}</td>
+                      <td>{val.country}</td>
+                      <td className="d-flex">
+                        {/* <Button variant="outline-success mx-2 w-25">
                             <span>
                               <i className="zmdi zmdi-edit zmdi-hc-2x"></i>
                             </span>
@@ -102,15 +105,14 @@ function Workers() {
                               <i className="zmdi zmdi-delete zmdi-hc-2x"></i>
                             </span>
                           </Button> */}
-                          <Button variant="outline-success mx-2 w-100">
-                            <FaRegEdit />
-                          </Button>
-                          <Button variant="outline-danger mx-2 w-100">
-                            <FaTrash />
-                          </Button>
-                        </td>
-                      </tr>
-                    </>
+                        <Button variant="outline-success mx-2 w-100">
+                          <FaRegEdit />
+                        </Button>
+                        <Button variant="outline-danger mx-2 w-100">
+                          <FaTrash />
+                        </Button>
+                      </td>
+                    </tr>
                   );
                 })}
               </tbody>

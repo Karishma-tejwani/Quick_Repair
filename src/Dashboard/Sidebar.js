@@ -15,27 +15,27 @@ const Sidebar = ({ children, id }) => {
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: `/Dashboard/${id}`,
+      path: `/dashboard/${id}`,
       name: "Dashboard",
       icon: <FaTh />,
     },
     {
-      path: "/Customers",
+      path: "/customers",
       name: "Customers",
       icon: <FaUsers />,
     },
     {
-      path: `/Orders`,
+      path: `/orders/${id}`,
       name: "Orders",
       icon: <FaCartPlus />,
     },
     {
-      path: `/Workers/${id}`,
+      path: `/workers/${id}`,
       name: "Workers",
       icon: <FaUserCog />,
     },
     {
-      path: "/Service",
+      path: "/service",
       name: "Services",
       icon: <FaPhoneAlt />,
     },

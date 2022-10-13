@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Table from "react-bootstrap/Table";
 import "../Style/Admin.css";
+import { useParams } from "react-router-dom";
 
 function Customers() {
   const [users, setUsers] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     fetch("http://localhost:1234/getAllCustomers", {
@@ -19,10 +21,10 @@ function Customers() {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass">
-          <Sidebar />
+        <div className="DashGlass my-2">
+          <Sidebar id={id} />
 
-          <div className="Row">
+          <div className="Row" style={{ marginTop: "45%" }}>
             <h2 className="text-center">Customers List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>

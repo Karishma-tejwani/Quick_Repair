@@ -3,26 +3,26 @@ import Sidebar from "./Sidebar";
 import "../Style/Admin.css";
 import { Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-const makeStyle = (status) => {
-  if (status === "Approved") {
-    return {
-      background: "rgb(145 254 159 / 47%)",
-      color: "green",
-    };
-  } else if (status === "Pending") {
-    return {
-      background: "#ffadad8f",
-      color: "red",
-    };
-  } else {
-    return {
-      background: "#59bfff",
-      color: "white",
-    };
-  }
-};
+// const makeStyle = (status) => {
+//   if (status === "Approved") {
+//     return {
+//       background: "rgb(145 254 159 / 47%)",
+//       color: "green",
+//     };
+//   } else if (status === "Pending") {
+//     return {
+//       background: "#ffadad8f",
+//       color: "red",
+//     };
+//   } else {
+//     return {
+//       background: "#59bfff",
+//       color: "white",
+//     };
+//   }
+// };
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
+  const [users, setUsers] = useState([]);
   const { id } = useParams();
   console.log(id);
 
@@ -32,40 +32,41 @@ const Orders = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        setOrders(result);
+        console.log("users", result);
+        setUsers(result);
       });
   }, []);
 
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass">
-          <Sidebar />
+        <div className="DashGlass my-2">
+          <Sidebar id={id} />
 
-          <div className="Row">
-            <h2>Customers List</h2>
+          <div className="Row" style={{ marginTop: "45%" }}>
+            <h2 className="text-center">Order List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
+                  <th>Admin Name</th>
+                  <th>Service Type</th>
+                  <th>Charges</th>
                   <th>Phone</th>
-                  <th>Address</th>
-                  <th>City</th>
+                  <th>Date</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                {orders.map((itm, i) => {
+                {users.map((itm, i) => {
                   return (
-                    <>
-                      <tr key={i}>
-                        <td>{itm.id}</td>
-                        <td>{itm.type}</td>
-                        <td>{itm.date}</td>
-                        <td>{itm.charges}</td>
-                        <td>{itm.status}</td>
-                      </tr>
-                    </>
+                    <tr key={itm.id}>
+                      <td>{itm.adminName}</td>
+                      <td>{itm.type}</td>
+                      <td>{itm.charges}</td>
+                      <td>{itm.phone}</td>
+                      <td>{itm.date}</td>
+                      <td>{itm.status}</td>
+                    </tr>
                   );
                 })}
               </tbody>
@@ -73,51 +74,6 @@ const Orders = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="Dashboard">
-        <div className="DashGlass">
-          <Sidebar />
-
-          <div className="Order">
-            <Table striped bordered hover variant="light" className="table-css">
-              <thead>
-                <tr>
-                  <th>OrderId</th>
-                  <th>Service Type</th>
-                  <th>Date</th>
-                  <th>Charges</th>
-                  <th>Admin</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {orders.map((itm, i) => {
-                  return (
-                    <>
-                      <tr key={i}>
-                        <td>{itm.id}</td>
-                        <td>{itm.type}</td>
-                        <td>{itm.date}</td>
-                        <td>{itm.charges}</td>
-                        <td>{itm.adminName}</td>
-                        <td>{itm.status}</td>
-                        <td>
-                          <span
-                            className="status"
-                            style={makeStyle(itm.status)}
-                          >
-                            {itm.status}
-                          </span>
-                        </td>
-                      </tr>
-                    </>
-                  );
-                })}
-              </tbody>
-            </Table>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

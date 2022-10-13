@@ -103,7 +103,7 @@ main{
 .DashGlass{ 
   margin-top: 6%;
   display: grid;
-  height: 82%;
+  height: 84%;
   width: 97%;
   border-radius: 2rem;
   background: var(--glass);
@@ -145,13 +145,6 @@ main{
 .card-text {
   height: fit-content;
   margin-bottom: 2rem;
-}
-
-.btn, .btn-primary {
-  position: absolute;
-  bottom: 5px;
-  color: #263238;
-  overflow: auto;
 }
 
 
