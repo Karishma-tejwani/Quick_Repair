@@ -80,31 +80,13 @@ function Workers() {
                   <th>Service Type</th>
                   <th>City</th>
                   <th>Country</th>
-                  <th>Actions</th>
+                  {/* <th>Actions</th> */}
                 </tr>
               </thead>
               <tbody>
                 {getData.map((val, i) => {
                   return (
                     <tr key={i}>
-                      <td className="d-flex">
-                        <Button
-                          onClick={() => {
-                            alert("click");
-                          }}
-                          variant="outline-success mx-2 w-100"
-                        >
-                          <FaRegEdit />
-                        </Button>
-                        <Button
-                          onClick={() => {
-                            alert("click");
-                          }}
-                          variant="outline-danger mx-2 w-100"
-                        >
-                          <FaTrash />
-                        </Button>
-                      </td>
                       <td>{val.name}</td>
                       <td>{val.nic}</td>
                       <td>{val.phone}</td>
@@ -112,14 +94,14 @@ function Workers() {
                       <td>{val.serviceType}</td>
                       <td>{val.city}</td>
                       <td>{val.country}</td>
-                      <td className="d-flex">
+                      {/* <td className="d-flex">
                         <Button variant="outline-success mx-2 w-100">
                           <FaRegEdit />
                         </Button>
                         <Button variant="outline-danger mx-2 w-100">
                           <FaTrash />
                         </Button>
-                      </td>
+                      </td> */}
                     </tr>
                   );
                 })}

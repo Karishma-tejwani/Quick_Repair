@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Card, NavLink } from "react-bootstrap";
 import "../Style/Style.css";
 import Background from "../Components/Background";
+import { useNavigate } from "react-router-dom";
 
 function HomeCleaning() {
   const [service, setService] = useState([]);
   const [feedback, setFeedback] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:1234/getServiceTypeByName?name=Home Cleaning", {
@@ -24,6 +27,10 @@ function HomeCleaning() {
         setFeedback(result);
       });
   }, []);
+
+  function handleClick() {
+    navigate("/booking");
+  }
 
   return (
     <>
@@ -51,12 +58,16 @@ function HomeCleaning() {
                         <li>Mopping</li>
                         <li>Restroom Cleaning</li>
                       </ul>
-                      <p className="fs-2 mt-5">Rs.{val.charges}</p>
+                      <p className="fs-2 mt-5">Rs.{val.charges}/-</p>
                       <NavLink
                         to={"/booking"}
-                        onClick={console.log("clicked")}
-                        className="fs-5 float-end "
-                        style={{ width: "30%", marginTop: "-10%" }}
+                        onClick={handleClick}
+                        className="fs-5 float-end btn btn-primary"
+                        style={{
+                          width: "30%",
+                          marginTop: "-10%",
+                          color: "white",
+                        }}
                       >
                         Book a Service
                       </NavLink>
@@ -76,27 +87,27 @@ function HomeCleaning() {
         </div>
       </div>
 
-      <Container style={{ marginTop: "35%" }}>
-        <h1 className="text-center" style={{ marginLeft: "25%" }}>
-          Feedback
-        </h1>
-        <Row>
-          {feedback.map((value, index) => {
-            return (
-              <Card
-                className="mx-auto my-2"
-                style={{ width: "22rem" }}
-                key={index}
-              >
-                <Card.Body>
-                  <Card.Title>Quick Repair Services</Card.Title>
-                  <Card.Subtitle>{value.rating}</Card.Subtitle>
-                  <Card.Text>{value.review}</Card.Text>
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </Row>
+      <h1 style={{ marginLeft: "45%", marginTop: "5%" }}>Feedback</h1>
+      <Container>
+        <div style={{ marginTop: "4%", marginLeft: "20%", padding: "5px" }}>
+          <Row>
+            {feedback.map((value, index) => {
+              return (
+                <Card
+                  className="mx-auto my-2"
+                  style={{ width: "22rem" }}
+                  key={index}
+                >
+                  <Card.Body>
+                    <Card.Title>Quick Repair Services</Card.Title>
+                    <Card.Subtitle>{value.rating}</Card.Subtitle>
+                    <Card.Text>{value.review}</Card.Text>
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </Row>
+        </div>
       </Container>
     </>
   );
