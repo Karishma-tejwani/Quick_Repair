@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "../Style/Style.css";
 import logo from "../images/log.png";
 import { NavDropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import "../Style/Style.css";
 
 function NavBar() {
   const [isMobile, setIsMobile] = useState(false);
