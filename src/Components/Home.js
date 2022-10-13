@@ -1,4 +1,4 @@
-import { Carousel } from "react-bootstrap";
+import { Carousel, NavLink } from "react-bootstrap";
 import slider1 from "../images/cover4.jpeg";
 import slider2 from "../images/cover.jpeg";
 import slider3 from "../images/cover1.jpg";
@@ -12,36 +12,42 @@ import Footer from "../Footer/Footer";
 function CardSlider() {
   const slides = [
     {
+      path: "/cleaning",
       image:
         "https://image.shutterstock.com/image-vector/janitors-team-working-professional-tools-260nw-1337751395.jpg",
       title: "Home Cleaning Service",
       desc: "Dusting, sweeping, vacuuming, mopping, and restroom cleaning.",
     },
     {
+      path: "/laundry",
       image:
         "https://previews.123rf.com/images/unitonevector/unitonevector1904/unitonevector190403694/122989734-husband-help-in-household-promotion-flat-design-cartoon-wife-ironing-clothes-man-unloads-laundry-fro.jpg",
       title: "Laundry Service",
       desc: "The laundry service will wash, dry, and iron your clothes.",
     },
     {
+      path: "/painting",
       image:
         "https://t4.ftcdn.net/jpg/02/44/79/73/360_F_244797342_trJTVjRpxixJfjoMSQuq29tPGQWkQ4e9.jpg",
       title: "Home Painting Service",
       desc: "Our services include interior, exterior, cabinets and more.",
     },
     {
+      path: "/electrical",
       image:
         "https://img.freepik.com/premium-vector/electronic-repair-service-center-illustration-cartoon-flat-family-people-pay-professional-repairing-home-electrical-appliance_169479-795.jpg?w=2000",
       title: "Electrical Appliance Repair Service",
       desc: "Maintain and repair electrical control, and lighting systems.",
     },
     {
+      path: "/plumbing",
       image:
         "https://cdn3.vectorstock.com/i/1000x1000/14/12/plumbing-problems-plumbers-fixing-shower-in-bath-vector-26261412.jpg",
       title: "Plumbing Service",
       desc: "Maintain water supply systems, repair broken drainage lines.",
     },
     {
+      path: "/carpentry",
       image:
         "https://t4.ftcdn.net/jpg/01/40/74/63/360_F_140746379_1eF9pMfnfz0ZuEwNj0zmqmfsJeRsOnoF.jpg",
       title: "carpentry Service",
@@ -100,7 +106,7 @@ function Home() {
             className="d-block w-100"
             src={slider1}
             alt="First slide"
-            style={{ height: "85vh" }}
+            style={{ height: "100vh" }}
           />
           <Carousel.Caption>
             <h3 className="heading">
@@ -118,7 +124,7 @@ function Home() {
             className="d-block w-100"
             src={slider2}
             alt="Second slide"
-            style={{ height: "85vh" }}
+            style={{ height: "100vh" }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -126,7 +132,7 @@ function Home() {
             className="d-block w-100"
             src={slider3}
             alt="Third slide"
-            style={{ height: "85vh" }}
+            style={{ height: "100vh" }}
           />
         </Carousel.Item>
       </Carousel>
