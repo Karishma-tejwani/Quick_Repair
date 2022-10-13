@@ -38,8 +38,8 @@ function Registration() {
     result = await result.json();
     if (result.key === "admin") {
       navigate(`/Dashboard/${result.admin.id}`);
-      dispatch(isLogin());
       console.log("id is ", result.admin.id);
+      dispatch(isLogin());
     } else if (result.key === "Customer") {
       navigate("/");
       dispatch(isLogin());
