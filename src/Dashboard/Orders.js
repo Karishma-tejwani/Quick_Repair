@@ -40,10 +40,16 @@ const Orders = () => {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass my-2">
+        <div className="DashGlass">
           <Sidebar id={id} />
 
-          <div className="Row" style={{ marginTop: "45%" }}>
+          <div
+            style={{
+              marginLeft: "15%",
+              height: "90%",
+              width: "100%",
+            }}
+          >
             <h2 className="text-center">Order List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>

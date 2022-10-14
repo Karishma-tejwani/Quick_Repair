@@ -21,10 +21,15 @@ function Customers() {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass my-2">
+        <div className="DashGlass">
           <Sidebar id={id} />
-
-          <div className="Row" style={{ marginTop: "45%" }}>
+          <div
+            style={{
+              marginLeft: "15%",
+              height: "90%",
+              width: "100%",
+            }}
+          >
             <h2 className="text-center">Customers List</h2>
             <Table striped bordered hover variant className="table-css">
               <thead>
@@ -52,6 +57,32 @@ function Customers() {
                 })}
               </tbody>
             </Table>
+            {/* <Table striped bordered hover variant className="table-css">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>City</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((itm, i) => {
+                  return (
+                    <>
+                      <tr key={i}>
+                        <td>{itm.name}</td>
+                        <td>{itm.email}</td>
+                        <td>{itm.phone}</td>
+                        <td>{itm.address}</td>
+                        <td>{itm.city}</td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </Table> */}
           </div>
         </div>
       </div>

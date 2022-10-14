@@ -53,10 +53,19 @@ function Workers() {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass my-2">
+        <div className="DashGlass">
           <Sidebar id={id} />
 
-          <div className="addbutton" style={{ marginTop: "45%" }}>
+          <div
+            className="addbutton"
+            style={{
+              marginLeft: "15%",
+              height: "90%",
+              width: "100%",
+              overflowY: "scroll",
+              borderRadius: "2rem",
+            }}
+          >
             <Button
               variant="success "
               className="btn mx-2"
@@ -86,15 +95,16 @@ function Workers() {
               <tbody>
                 {getData.map((val, i) => {
                   return (
-                    <tr key={i}>
-                      <td>{val.name}</td>
-                      <td>{val.nic}</td>
-                      <td>{val.phone}</td>
-                      <td>{val.address}</td>
-                      <td>{val.serviceType}</td>
-                      <td>{val.city}</td>
-                      <td>{val.country}</td>
-                      {/* <td className="d-flex">
+                    <>
+                      <tr key={val.id}>
+                        <td>{val.name}</td>
+                        <td>{val.nic}</td>
+                        <td>{val.phone}</td>
+                        <td>{val.address}</td>
+                        <td>{val.serviceType}</td>
+                        <td>{val.city}</td>
+                        <td>{val.country}</td>
+                        {/* <td className="d-flex">
                         <Button variant="outline-success mx-2 w-100">
                           <FaRegEdit />
                         </Button>
@@ -102,7 +112,8 @@ function Workers() {
                           <FaTrash />
                         </Button>
                       </td> */}
-                    </tr>
+                      </tr>
+                    </>
                   );
                 })}
               </tbody>

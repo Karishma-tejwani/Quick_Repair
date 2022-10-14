@@ -21,9 +21,17 @@ function Service() {
   return (
     <>
       <div className="Dashboard">
-        <div className="DashGlass my-2" style={{ display: "grid" }}>
+        <div className="DashGlass" style={{ display: "grid" }}>
           <Sidebar id={id} />
-          <div className="Row" style={{ marginTop: "45%" }}>
+          <div
+            style={{
+              marginLeft: "15%",
+              height: "90%",
+              width: "100%",
+              overflowY: "scroll",
+              borderRadius: "2rem",
+            }}
+          >
             <h1 className="text-center">Services</h1>
             {users.map((itm, index) => {
               return (
