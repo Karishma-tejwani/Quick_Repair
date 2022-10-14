@@ -100,7 +100,15 @@ function HomeCleaning() {
                 >
                   <Card.Body>
                     <Card.Title>Quick Repair Services</Card.Title>
-                    <Card.Subtitle>{value.rating}</Card.Subtitle>
+                    <Card.Subtitle>
+                      <span style={{ color: "goldenrod" }}>
+                        {" "}
+                        <i class="zmdi zmdi-star"></i>
+                        <i class="zmdi zmdi-star"></i>
+                        <i class="zmdi zmdi-star"></i>
+                        <i class="zmdi zmdi-star"></i>
+                      </span>
+                    </Card.Subtitle>
                     <Card.Text>{value.review}</Card.Text>
                   </Card.Body>
                 </Card>
